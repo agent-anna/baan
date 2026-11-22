@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A1 Diffusion Pod • STRAYD Character Sheet &amp; Live-Action Runner</title>
+  <style>
+    :root {
+      --bg: #090c12;
+      --panel: #111724;
+      --panel-2: #172033;
+      --text: #f3f6fb;
+      --muted: #98a6bd;
+      --line: rgba(148, 163, 184, 0.18);
+      --accent: #e5b84b;
+      --accent-ink: #090c12;
+      --ok: #a3e635;
+      --sky: #38bdf8;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1140px; margin: 0 auto; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+    .topbar h1 { margin: 0; font-size: 1.3rem; }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: 370px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    label { display: block; font-size: 0.8rem; color: var(--muted); margin: 10px 0 4px; }
+    label:first-of-type { margin-top: 0; }
+    input, select, textarea, button {
+      width: 100%;
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      background: #0b0f18;
+      color: var(--text);
+      padding: 9px 12px;
+      font-size: 0.88rem;
+    }
+    textarea {
+      min-height: 140px;
+      font-family: ui-monospace, Consolas, Menlo, monospace;
+      font-size: 0.82rem;
+      resize: vertical;
+    }
+    button {
+      cursor: pointer;
+      font-weight: 700;
+      background: var(--panel-2);
+    }
+    button:hover { border-color: var(--accent); }
+    button.accent { background: var(--accent); color: var(--accent-ink); border: none; }
+    button.primary { background: var(--ok); color: var(--accent-ink); border: none; }
+    button.sky { background: var(--sky); color: var(--accent-ink); border: none; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .btn-row button { width: auto; padding: 7px 12px; font-size: 0.8rem; }
+    .pill {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #0b0f18;
+      border: 1px solid var(--line);
+      color: var(--ok);
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .sheet-thumb {
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #0b0f18;
+      max-height: 170px;
+      width: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    .sheet-thumb.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div>
+        <h1>A1 Diffusion Pod • STRAYD Character Sheet &amp; Live-Action Runner</h1>
+        <div class="muted" id="podSub">Character-anchored realistic live-action image &amp; short clip runner • Zero cartoon</div>
+      </div>
+      <div>
+        <span class="muted" id="podStatus">Ready</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <aside>
+        <section class="card">
+          <div class="card-title">1. STRAYD Character Sheet &amp; Track</div>
+          <div id="modePills">
+            <span class="pill">STRAYD Sheet Anchor</span>
+            <span class="pill">Live-Action Only</span>
+            <span class="pill">Zero Cartoon</span>
+          </div>
+
+          <label for="charSheetUrlIn">STRAYD Character Sheet Image URL</label>
+          <input id="charSheetUrlIn" type="text" placeholder="Paste STRAYD character sheet image URL..." />
+          <img id="charSheetPreview" class="sheet-thumb" alt="STRAYD Character Sheet Preview" />
+
+          <label for="trackTitleIn">Single Title</label>
+          <input id="trackTitleIn" type="text" value="Martin Strayd Daily Single" />
+
+          <label for="trackIdIn">Track ID</label>
+          <input id="trackIdIn" type="text" value="A1-STRAYD" />
+
+          <label for="outputKind">Generation Mode</label>
+          <select id="outputKind">
+            <option value="reel_15s" selected>Short Live-Action Clip (5–15s Social)</option>
+            <option value="live_frame">Live-Action Social Image / Frame</option>
+          </select>
+
+          <label for="cloudPreset">Free Cloud Target Preset</label>
+          <select id="cloudPreset">
+            <option value="https://colab.research.google.com/" selected>Google Colab (Free T4 when available)</option>
+            <option value="https://www.kaggle.com/code">Kaggle Kernels (Free Weekly GPU Quota)</option>
+            <option value="https://huggingface.co/spaces">Hugging Face Spaces</option>
+          </select>
+
+          <label for="cloudUrlIn">Cloud Runner URL</label>
+          <input id="cloudUrlIn" type="text" value="https://colab.research.google.com/" />
+
+          <div class="btn-row">
+            <button type="button" class="accent" id="rebuildPromptBtn">Refresh Prompt</button>
+            <button type="button" id="reloadHandoffBtn">Pull Studio Handoff</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-title">2. Fast Workflow (Less Clicks)</div>
+          <div class="muted">
+            1. Keep your <strong>STRAYD Character Sheet URL</strong> set once.<br />
+            2. Click <strong>Copy Prompt + Open Cloud</strong> to copy the prompt and open Colab/Kaggle.<br />
+            3. Paste into your notebook/generator and run.
+          </div>
+          <div class="btn-row">
+            <button type="button" class="primary" id="copyAndOpenBtn">Copy Prompt + Open Cloud</button>
+            <button type="button" class="sky" id="copyCellBtn">Copy Colab Starter Cell</button>
+          </div>
+        </section>
+      </aside>
+
+      <main>
+        <section class="card">
+          <div class="card-title">3. Live-Action Diffusion Prompt (STRAYD Sheet + Zero Cartoon)</div>
+          <label for="promptOut">Prompt Text</label>
+          <textarea id="promptOut"></textarea>
+          <div class="btn-row">
+            <button type="button" id="copyPromptOnlyBtn">Copy Prompt</button>
+            <button type="button" id="openCloudOnlyBtn">Open Cloud URL</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-title">4. Colab / Notebook Starter Cell (With Character Sheet Ref)</div>
+          <label for="colabCellOut">Paste into Colab or Kaggle cell</label>
+          <textarea id="colabCellOut" style="min-height:190px;"></textarea>
+          <div class="btn-row">
+            <button type="button" id="copyCellBottomBtn">Copy Starter Cell</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+  (() => {
+    const HANDOFF_KEY = "anna_diffusion_handoff_v1";
+    const SHEET_STORAGE_KEY = "anna_strayd_char_sheet_v1";
+    const $ = (id) => document.getElementById(id);
+    const nonEmpty = (v, fb = "") => (typeof v === "string" && v.trim() ? v.trim() : fb);
+
+    function updateSheetPreview(url) {
+      const img = $("charSheetPreview");
+      const clean = nonEmpty(url);
+      if (!img) return;
+      if (!clean) {
+        img.classList.remove("visible");
+        img.removeAttribute("src");
+        return;
+      }
+      img.src = clean;
+      img.classList.add("visible");
+      img.onerror = () => img.classList.remove("visible");
+    }
+
+    function buildPrompt() {
+      const title = nonEmpty($("trackTitleIn")?.value, "Martin Strayd Daily Single");
+      const trackId = nonEmpty($("trackIdIn")?.value, "A1-STRAYD");
+      const sheetUrl = nonEmpty($("charSheetUrlIn")?.value);
+      if (sheetUrl) {
+        try { localStorage.setItem(SHEET_STORAGE_KEY, sheetUrl); } catch (_) {}
+      }
+      updateSheetPreview(sheetUrl);
+
+      const kind = $("outputKind")?.value || "reel_15s";
+      const charRefClause = sheetUrl
+        ? `Maintain strict visual identity and wardrobe continuity with the STRAYD character sheet reference (${sheetUrl}). `
+        : `Maintain strict STRAYD character sheet identity and realistic wardrobe continuity. `;
+
+      const sceneClause = kind === "live_frame"
+        ? `Social image / frame for "${title}" (${trackId}) by Martin Strayd with modern DJ/host Agent Anna inside a real warm evening studio & music room, practical lamp lighting, real acoustic guitar and headphones, 35mm lens, shallow depth of field.`
+        : `Short realistic live-action video clip (5–15s) for "${title}" (${trackId}) by Martin Strayd hosted by modern DJ Agent Anna inside a real warm music & podcast room, practical tungsten lamps, acoustic guitar and broadcast mic, smooth natural camera motion, authentic textures.`;
+
+      const full = `${charRefClause}${sceneClause} Realistic live-action cinematography only, natural skin and room grain, strictly zero cartoon, anime, or CGI toy styling.`;
+      $("promptOut").value = full;
+
+      $("colabCellOut").value =
+`# A1 Diffusion Pod Starter Cell (Colab / Kaggle)
+TRACK_ID = ${JSON.stringify(trackId)}
+TRACK_TITLE = ${JSON.stringify(title)}
+CHAR_SHEET_URL = ${JSON.stringify(sheetUrl)}
+PROMPT = ${JSON.stringify(full)}
+
+print("TRACK:", TRACK_ID, "-", TRACK_TITLE)
+print("CHAR_SHEET_URL:", CHAR_SHEET_URL or "(none set)")
+print("PROMPT:\\n", PROMPT)
+# Pass CHAR_SHEET_URL into img2img / image-to-video reference and PROMPT into your diffusion pipeline.
+`;
+      $("podStatus").textContent = `Ready: ${title} (${trackId})`;
+    }
+
+    function loadHandoff() {
+      let savedSheet = "";
+      try { savedSheet = localStorage.getItem(SHEET_STORAGE_KEY) || ""; } catch (_) {}
+      if (savedSheet && !$("charSheetUrlIn").value) {
+        $("charSheetUrlIn").value = savedSheet;
+      }
+
+      let data = null;
+      try {
+        const raw = localStorage.getItem(HANDOFF_KEY);
+        if (raw) data = JSON.parse(raw);
+      } catch (_) {}
+
+      if (data && typeof data === "object") {
+        if (nonEmpty(data.title)) $("trackTitleIn").value = data.title;
+        if (nonEmpty(data.id)) $("trackIdIn").value = data.id;
+        if (nonEmpty(data.render_target)) $("cloudUrlIn").value = data.render_target;
+        if (nonEmpty(data.character_sheet_url)) $("charSheetUrlIn").value = data.character_sheet_url;
+        buildPrompt();
+        $("podStatus").textContent = `Loaded from studio: ${$("trackTitleIn").value}`;
+        return;
+      }
+      buildPrompt();
+    }
+
+    async function copyText(id, msg) {
+      const txt = $(id)?.value || "";
+      try { await navigator.clipboard.writeText(txt); } catch (_) {}
+      $("podStatus").textContent = msg;
+    }
+
+    function openCloud() {
+      const url = nonEmpty($("cloudUrlIn")?.value, "https://colab.research.google.com/");
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    $("cloudPreset")?.addEventListener("change", (e) => {
+      $("cloudUrlIn").value = e.target.value;
+    });
+    $("charSheetUrlIn")?.addEventListener("input", buildPrompt);
+    $("rebuildPromptBtn")?.addEventListener("click", buildPrompt);
+    $("reloadHandoffBtn")?.addEventListener("click", loadHandoff);
+    $("trackTitleIn")?.addEventListener("input", buildPrompt);
+    $("trackIdIn")?.addEventListener("input", buildPrompt);
+    $("outputKind")?.addEventListener("change", buildPrompt);
+
+    $("copyPromptOnlyBtn")?.addEventListener("click", () => copyText("promptOut", "Copied live-action prompt"));
+    $("openCloudOnlyBtn")?.addEventListener("click", openCloud);
+    $("copyAndOpenBtn")?.addEventListener("click", async () => {
+      await copyText("promptOut", "Copied prompt & opening cloud target");
+      openCloud();
+    });
+    $("copyCellBtn")?.addEventListener("click", () => copyText("colabCellOut", "Copied Colab starter cell"));
+    $("copyCellBottomBtn")?.addEventListener("click", () => copyText("colabCellOut", "Copied Colab starter cell"));
+
+    loadHandoff();
+  })();
+  </script>
+</body>
+</html>
