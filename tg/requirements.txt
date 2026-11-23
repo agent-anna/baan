@@ -1,0 +1,18 @@
+# ANNA v2 — Telegram Bot Dependencies
+# Kunda Cafe Franchise Empire // Guardian Mode ACTIVE
+
+# Core Telegram Bot
+python-telegram-bot==20.7
+
+# Logging & Utilities
+loguru>=0.7.0
+
+# Environment Variables
+python-dotenv>=1.0.0
+
+# Date/Time
+python-dateutil>=2.8.2
+
+# Optional: For webhooks/production
+# fastapi>=0.100.0
+# uvicorn>=0.23.0

@@ -1,0 +1,4 @@
+# ANNA v2 — Deployment Config
+# Kunda Cafe Franchise Empire // Guardian Mode ACTIVE
+
+web: python A1/bot.py
