@@ -1,7 +1,0 @@
-﻿# Page 9 — Inside the Vault & Console Loop: Living With Real Files
-
-A command console only earns trust when the files behind it stay visible and accountable. In Agent Anna V3 (A1 WORKBENCH), the left-hand repository vault (AGENT-ANNA / ANNA-V2 (A1 V3)) lets Martin switch between VIEW: TREE and grid mode, pull current files with SYNC, set or inspect a target path like A1/v3/memory/memory.json, edit text directly in #repo-code-editor, and preview media in #media-preview-container. Before saving an update, AUDIT gives a check on the active file, and COMMIT records approved changes into repository history while DELETE opens #delete-warning-banner so removing a file requires explicit confirmation via YES, DELETE or backing out with CANCEL.
-
-On the right side of the room, the console turns raw repository files into clear briefings. Clicking INTEL BRIEF asks Anna to summarize snapshots in A1/v3/knowledge/ along with key links and findings; MEMORY STATUS reviews A1/v3/memory/tasks.json and A1/v3/memory/memory.json for a concise status summary; and READ LAST LOG fetches the latest backend report. Together, the vault and console keep Anna anchored in real state rather than guesswork.
-
-[IMAGE PLACEHOLDER 09 - VAULT & BRIEFING LOOP: Realistic split-screen workstation photograph showing file navigation and code editing alongside a calm console with tactical briefing actions; zero cartoon elements.]
