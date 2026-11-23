@@ -1765,21 +1765,31 @@
     init();
   })();
   </script>
-<script id="annaV5EmpireRuntime">
+<script id="annaA1V5Engine">
 (() => {
-  const BIBLE_URL = "docs/v5BIBLE";
-  const OVERRIDE_KEY = "anna_v5_empire_overrides_v1";
-  const VOICE_KEY = "anna_v5_empire_voice_v1";
-
-  const state = {
-    source: "docs/v5BIBLE",
+  const BIBLE_PATHS = ["A1/docs/v5BIBLE", "./A1/docs/v5BIBLE", "../A1/docs/v5BIBLE"];
+  const VOICE_KEY = "anna_a1_v5_voice_v1";
+  const cfg = {
     meta: {
       ARTIST: "Martin Strayd",
       HOST: "DJ ANNA",
       MOTTO: "One artist. One song per day. One catalog forever.",
-      IDENTITY: "Martin Strayd is an Australian songwriter, lyricist, composer, independent artist, and catalog builder with a multi-decade songwriting history and a growing 100+ song catalog.",
-      RADIO_PROOF: "Documented international radio airplay includes DZRH News Radyo (Philippines), RPP FM 98.7 (Australia), WREK Atlanta (United States), CTBC (Canada), Aligre FM 93.1 & Tonic Radio (France), Radio Milenaire FM 98.1 (Chile), Radio Ultimito Mix (Ecuador), RRI Pro 4 Denpasar (Indonesia), and Musichitz Looktung Station (Thailand)."
+      IDENTITY: "Martin Strayd is an Australian songwriter, lyricist, composer, independent artist, and catalog builder with a multi-decade songwriting history and a growing 100+ song catalog."
     },
+    hooks: [
+      'Late-night radio just cut through the noise—and "{{TITLE}}" from Martin Strayd is why the room went quiet.',
+      'Forget waiting months for one single—we drop a brand-new chapter every 24 hours, and "{{TITLE}}" just hit the deck.',
+      'Somewhere on Earth right now, someone is hearing "{{TITLE}}" by Martin Strayd for the very first time.'
+    ],
+    stations: [
+      "DZRH News Radyo in the Philippines & RPP FM 98.7 in Australia",
+      "WREK Atlanta in the US & CTBC in Canada",
+      "Aligre FM 93.1 and Tonic Radio in France"
+    ],
+    closers: [
+      'Tell me in the comments what "{{TITLE}}" sparks for you—and pass it to a friend who actually listens.',
+      'One song. One day. One chapter. Spin "{{TITLE}}" and see where the catalog takes you next.'
+    ],
     links: {
       store: "https://martinstrayd.github.io/artist/",
       site: "https://strayd.com/",
@@ -1800,115 +1810,89 @@
     },
     templates: {}
   };
-
-  // Hard ban on catalog IDs (STRAYD-ID-xxx) and leading index numbers (01., 1.) everywhere
-  function nukeIds(str) {
-    return (str || "")
+  let spin = 0;
+  function cleanIds(s) {
+    return (s || "")
       .replace(/\s*[\(\[]?\s*STRAYD-ID-[A-Z0-9_-]+\s*[\)\]]?\s*/gi, " ")
       .replace(/^\s*\d{1,3}[\.\)\-:]\s*/gm, "")
-      .replace(/\(\s*\)/g, "")
-      .replace(/\[\s*\]/g, "")
-      .replace(/[ \t]{2,}/g, " ")
-      .replace(/\s+([,.;:!?])/g, "$1")
-      .trim();
+      .replace(/\(\s*\)/g, "").replace(/\[\s*\]/g, "")
+      .replace(/[ \t]{2,}/g, " ").replace(/\s+([,.;:!?])/g, "$1").trim();
   }
-
-  function parseBible(raw) {
+  function parseV5(raw) {
+    const h = [], st = [], cl = [];
     let sec = "";
     for (const line of (raw || "").split(/\r?\n/)) {
-      const m = line.match(/^\[(META|LINKS|TARGETS|TEMPLATES)\]\s*$/i);
+      const m = line.match(/^\[(META|HOOKS|STATIONS|CLOSERS|LINKS|TARGETS|TEMPLATES)\]\s*$/i);
       if (m) { sec = m[1].toUpperCase(); continue; }
-      if (!sec || !line.trim() || line.trim().startsWith("#") || line.startsWith("===")) continue;
-      const idx = line.indexOf("=");
-      if (idx < 1) continue;
-      const k = line.slice(0, idx).trim();
-      const v = nukeIds(line.slice(idx + 1).replace(/\\n/g, "\n"));
-      if (sec === "META") state.meta[k] = v;
-      else if (sec === "LINKS") state.links[k] = v;
-      else if (sec === "TARGETS") state.targets[k] = v;
-      else if (sec === "TEMPLATES") state.templates[k] = v;
+      if (!sec || !line.trim() || line.trim().startsWith("#")) continue;
+      const eq = line.indexOf("=");
+      if (eq < 1) continue;
+      const k = line.slice(0, eq).trim();
+      const v = cleanIds(line.slice(eq + 1).replace(/\\n/g, "\n"));
+      if (sec === "META") cfg.meta[k] = v;
+      else if (sec === "HOOKS") h.push(v);
+      else if (sec === "STATIONS") st.push(v);
+      else if (sec === "CLOSERS") cl.push(v);
+      else if (sec === "LINKS") cfg.links[k] = v;
+      else if (sec === "TARGETS") cfg.targets[k] = v;
+      else if (sec === "TEMPLATES") cfg.templates[k] = v;
     }
+    if (h.length) cfg.hooks = h;
+    if (st.length) cfg.stations = st;
+    if (cl.length) cfg.closers = cl;
   }
-
-  async function loadBible() {
-    for (const p of [BIBLE_URL, "./" + BIBLE_URL, "../" + BIBLE_URL]) {
+  async function fetchV5() {
+    for (const p of BIBLE_PATHS) {
       try {
-        const res = await fetch(p, { cache: "no-store" });
-        if (res && res.ok) {
-          parseBible(await res.text());
-          state.source = p;
-          return true;
-        }
+        const r = await fetch(p, { cache: "no-store" });
+        if (r && r.ok) { parseV5(await r.text()); return true; }
       } catch (_) {}
     }
     return false;
   }
-
-  function scrubSelectOptions() {
+  function scrubSelects() {
     for (const sel of document.querySelectorAll("select")) {
       for (const opt of Array.from(sel.options || [])) {
-        const orig = opt.textContent || "";
-        const cleaned = nukeIds(orig);
-        if (cleaned && orig !== cleaned) {
-          opt.textContent = cleaned;
-          opt.label = cleaned;
-        }
+        const cur = opt.textContent || "";
+        const next = cleanIds(cur);
+        if (next && cur !== next) { opt.textContent = next; opt.label = next; }
       }
     }
   }
-
-  function scrubAllEditorsAndText() {
-    scrubSelectOptions();
-    for (const ta of document.querySelectorAll("textarea")) {
-      if (typeof ta.value === "string" && /STRAYD-ID-|^\s*\d{1,3}[\.\)\-:]\s*/im.test(ta.value)) {
-        const cleaned = nukeIds(ta.value);
-        if (cleaned !== ta.value) {
-          ta.value = cleaned;
-          ta.dispatchEvent(new Event("input", { bubbles: true }));
-        }
-      }
-    }
-  }
-
-  function getActiveTitle() {
+  function getSongTitle() {
     const inp = document.querySelector("input[placeholder*='single title' i], input[placeholder*='override' i], #customTitleOverride");
-    const custom = inp && typeof inp.value === "string" ? nukeIds(inp.value) : "";
+    const custom = inp && typeof inp.value === "string" ? cleanIds(inp.value) : "";
     if (custom) return custom;
-
     const sel = Array.from(document.querySelectorAll("select")).find((s) =>
-      Array.from(s.options || []).some((o) => /STRAYD-ID-/i.test((o.value || "") + (o.dataset?.id || "")) || (o.textContent || "").length > 3)
+      Array.from(s.options || []).some((o) => (o.textContent || "").trim().length > 2)
     );
     const opt = sel ? sel.options[sel.selectedIndex] : null;
-    return nukeIds(opt ? opt.textContent : "") || "Today's Daily Single";
+    return cleanIds(opt ? opt.textContent : "") || "Tonight's Daily Single";
   }
-
-  function renderTemplate(tpl, title, channel) {
-    const cleanT = nukeIds(title);
-    const tag = cleanT.replace(/[^a-zA-Z0-9]+/g, "").slice(0, 24) || "DailySingles";
+  function pickItem(arr, off) {
+    if (!arr || !arr.length) return "";
+    return arr[Math.abs(spin + off) % arr.length];
+  }
+  function buildChannelText(ch, title, idx) {
+    const t = cleanIds(title);
+    const tag = t.replace(/[^a-zA-Z0-9]+/g, "").slice(0, 24) || "DailySingles";
     const dateStr = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
-    let out = tpl || state.templates.default || "";
-    const map = {
-      "{{TITLE}}": cleanT,
-      "{{TAG}}": tag,
-      "{{DATE}}": dateStr,
-      "{{BIBLE_SOURCE}}": state.source,
-      "{{MOTTO}}": state.meta.MOTTO || "",
-      "{{IDENTITY}}": state.meta.IDENTITY || "",
-      "{{RADIO_PROOF}}": state.meta.RADIO_PROOF || "",
-      "{{store}}": state.links.store || "",
-      "{{site}}": state.links.site || "",
-      "{{spotify}}": state.links.spotify || "",
-      "{{paypal}}": state.links.paypal || "",
-      "{{wise}}": state.links.wise || "",
-      "{{bmac}}": state.links.bmac || ""
+    const hook = pickItem(cfg.hooks, idx).split("{{TITLE}}").join(t);
+    const station = pickItem(cfg.stations, idx + 1);
+    const closer = pickItem(cfg.closers, idx + 2).split("{{TITLE}}").join(t);
+    let tpl = cfg.templates[ch] || cfg.templates.default || '📡 {{HOOK}} {{MOTTO}} Spotify: {{spotify}} | Hub: {{store}} #{{TAG}} #MartinStrayd';
+    const rep = {
+      "{{TITLE}}": t, "{{TAG}}": tag, "{{DATE}}": dateStr, "{{HOOK}}": hook, "{{STATION}}": station, "{{CLOSER}}": closer,
+      "{{MOTTO}}": cfg.meta.MOTTO || "", "{{IDENTITY}}": cfg.meta.IDENTITY || "",
+      "{{store}}": cfg.links.store || "", "{{site}}": cfg.links.site || "", "{{spotify}}": cfg.links.spotify || "",
+      "{{paypal}}": cfg.links.paypal || "", "{{wise}}": cfg.links.wise || "", "{{bmac}}": cfg.links.bmac || ""
     };
-    for (const [k, v] of Object.entries(map)) out = out.split(k).join(v);
-    out = nukeIds(out);
-    if (channel === "x") out = out.slice(0, 278);
+    for (const [k, v] of Object.entries(rep)) tpl = tpl.split(k).join(v);
+    let out = cleanIds(tpl);
+    if (ch === "x") out = out.slice(0, 278);
     return out;
   }
-
-  function detectChannel(card) {
+  function detectCh(card) {
     const h = ((card.querySelector("h1,h2,h3,h4,.card-title,.platform-title,.net-name")?.textContent || "") + " " + (card.textContent || "").slice(0, 180)).toLowerCase();
     if (/press\s*release|pitch\s*deck|slots|rep/i.test(h)) return "press";
     if (/tiktok/i.test(h)) return "tiktok";
@@ -1920,17 +1904,13 @@
     if (/linkedin|reddit/i.test(h)) return "default";
     return null;
   }
-
-  function pickFemaleVoice() {
+  function pickVoice() {
     if (!("speechSynthesis" in window)) return null;
     const vs = window.speechSynthesis.getVoices() || [];
     if (!vs.length) return null;
     let saved = "";
     try { saved = localStorage.getItem(VOICE_KEY) || ""; } catch (_) {}
-    if (saved) {
-      const m = vs.find((v) => v.name === saved || v.voiceURI === saved);
-      if (m) return m;
-    }
+    if (saved) { const m = vs.find((v) => v.name === saved || v.voiceURI === saved); if (m) return m; }
     const fem = /female|woman|zira|aria|jenny|sonia|libby|maisie|natasha|hazel|emma|olivia|samantha|victoria/i;
     const male = /\bmale\b|\bman\b|\bdavid\b|\bmark\b|\bguy\b|\bryan\b|\balex\b|\bdaniel\b|\bgeorge\b/i;
     const best = vs.map((v) => {
@@ -1941,106 +1921,65 @@
       if (male.test(lbl)) s -= 90;
       return { v, s };
     }).sort((a, b) => b.s - a.s)[0];
-    if (best?.v) {
-      try { localStorage.setItem(VOICE_KEY, best.v.name || best.v.voiceURI || ""); } catch (_) {}
-    }
+    if (best?.v) { try { localStorage.setItem(VOICE_KEY, best.v.name || best.v.voiceURI || ""); } catch (_) {} }
     return best ? best.v : vs[0];
   }
-
-  async function copyClipboard(txt) {
-    const clean = nukeIds(txt);
-    if (!clean) return false;
-    try { if (navigator.clipboard?.writeText) { await navigator.clipboard.writeText(clean); return true; } } catch (_) {}
+  async function copyVal(txt) {
+    const c = cleanIds(txt);
+    if (!c) return false;
+    try { if (navigator.clipboard?.writeText) { await navigator.clipboard.writeText(c); return true; } } catch (_) {}
     try {
       const ta = document.createElement("textarea");
-      ta.value = clean; ta.style.position = "fixed"; ta.style.opacity = "0";
+      ta.value = c; ta.style.position = "fixed"; ta.style.opacity = "0";
       document.body.appendChild(ta); ta.select();
       const ok = document.execCommand("copy");
       document.body.removeChild(ta);
       return ok;
     } catch (_) { return false; }
   }
-
-  // Intercept speechSynthesis.speak so IDs can never be spoken even if another button triggers TTS
-  if ("speechSynthesis" in window && !window.__annaNukeSpeakHook) {
-    window.__annaNukeSpeakHook = true;
+  if ("speechSynthesis" in window && !window.__annaA1VoiceGuard) {
+    window.__annaA1VoiceGuard = true;
     const rawSpeak = window.speechSynthesis.speak.bind(window.speechSynthesis);
-    window.speechSynthesis.speak = (u) => {
-      if (u && typeof u.text === "string") u.text = nukeIds(u.text);
-      return rawSpeak(u);
-    };
+    window.speechSynthesis.speak = (u) => { if (u && typeof u.text === "string") u.text = cleanIds(u.text); return rawSpeak(u); };
   }
-
   let busy = false;
-  function hydrateCards() {
+  function updateCards(bump = false) {
     if (busy) return;
     busy = true;
     try {
-      scrubSelectOptions();
-      const title = getActiveTitle();
-      let ov = {};
-      try { ov = JSON.parse(localStorage.getItem(OVERRIDE_KEY) || "{}"); } catch (_) {}
-
+      if (bump) spin += 1;
+      scrubSelects();
+      const title = getSongTitle();
+      let idx = 0;
       for (const card of document.querySelectorAll("article,section,.card,.post-card,.social-card,.platform-card,.panel")) {
-        const ch = detectChannel(card);
+        const ch = detectCh(card);
         if (!ch) continue;
         const ed = card.querySelector("textarea,[contenteditable='true'],.post-text,.caption-box,.press-body");
         if (!ed) continue;
-
-        const key = `${ch}_${title}`;
-        const tpl = state.templates[ch] || state.templates.default || "";
-        const val = nukeIds(ov[key] || renderTemplate(tpl, title, ch));
-
+        const val = buildChannelText(ch, title, idx++);
         if (typeof ed.value === "string") {
-          if (ed.value !== val) {
-            ed.value = val;
-            ed.dispatchEvent(new Event("input", { bubbles: true }));
-          }
+          if (ed.value !== val) { ed.value = val; ed.dispatchEvent(new Event("input", { bubbles: true })); }
         } else if (ed.innerText !== val) {
-          ed.innerText = val;
-          ed.dispatchEvent(new Event("input", { bubbles: true }));
+          ed.innerText = val; ed.dispatchEvent(new Event("input", { bubbles: true }));
         }
-
         const btns = Array.from(card.querySelectorAll("button"));
         const postBtn = btns.find((b) => /^post$/i.test((b.textContent || "").trim()));
-        const saveBtn = btns.find((b) => /^save$/i.test((b.textContent || "").trim()));
         const copyBtn = btns.find((b) => /^copy$/i.test((b.textContent || "").trim()));
         const speakBtn = btns.find((b) => /^(speak|stop)$/i.test((b.textContent || "").trim()));
-
-        if (saveBtn && !saveBtn.dataset.v5nSave) {
-          saveBtn.dataset.v5nSave = "1";
-          saveBtn.addEventListener("click", (e) => {
-            e.preventDefault(); e.stopPropagation();
-            const cur = nukeIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
-            ov[`${ch}_${getActiveTitle()}`] = cur;
-            try { localStorage.setItem(OVERRIDE_KEY, JSON.stringify(ov)); } catch (_) {}
-          }, true);
+        if (copyBtn && !copyBtn.dataset.a1v5Copy) {
+          copyBtn.dataset.a1v5Copy = "1";
+          copyBtn.addEventListener("click", async (e) => { e.preventDefault(); e.stopPropagation(); await copyVal(typeof ed.value === "string" ? ed.value : (ed.innerText || "")); }, true);
         }
-
-        if (copyBtn && !copyBtn.dataset.v5nCopy) {
-          copyBtn.dataset.v5nCopy = "1";
-          copyBtn.addEventListener("click", async (e) => {
-            e.preventDefault(); e.stopPropagation();
-            const cur = nukeIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
-            if (typeof ed.value === "string") ed.value = cur;
-            await copyClipboard(cur);
-          }, true);
-        }
-
-        if (speakBtn && !speakBtn.dataset.v5nSpeak) {
-          speakBtn.dataset.v5nSpeak = "1";
+        if (speakBtn && !speakBtn.dataset.a1v5Speak) {
+          speakBtn.dataset.a1v5Speak = "1";
           speakBtn.addEventListener("click", (e) => {
             e.preventDefault(); e.stopPropagation();
             if (!("speechSynthesis" in window)) return;
-            if (window.speechSynthesis.speaking) {
-              window.speechSynthesis.cancel();
-              speakBtn.textContent = "Speak";
-              return;
-            }
-            const spoken = nukeIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
+            if (window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); speakBtn.textContent = "Speak"; return; }
+            const spoken = cleanIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
             if (!spoken) return;
             const u = new SpeechSynthesisUtterance(spoken);
-            const v = pickFemaleVoice();
+            const v = pickVoice();
             if (v) { u.voice = v; u.lang = v.lang || "en-US"; }
             u.pitch = 1.08; u.rate = 0.98;
             speakBtn.textContent = "Stop";
@@ -2049,51 +1988,19 @@
             window.speechSynthesis.speak(u);
           }, true);
         }
-
-        if (postBtn && !postBtn.dataset.v5nPost) {
-          postBtn.dataset.v5nPost = "1";
+        if (postBtn && !postBtn.dataset.a1v5Post) {
+          postBtn.dataset.a1v5Post = "1";
           postBtn.addEventListener("click", async (e) => {
             e.preventDefault(); e.stopPropagation();
-            const cur = nukeIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
-            if (typeof ed.value === "string") ed.value = cur;
-            await copyClipboard(cur);
-            window.open(state.targets[ch] || state.targets.facebook, "_blank", "noopener,noreferrer");
+            await copyVal(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
+            window.open(cfg.targets[ch] || cfg.targets.facebook, "_blank", "noopener,noreferrer");
           }, true);
         }
       }
-      scrubAllEditorsAndText();
-    } finally {
-      busy = false;
-    }
+    } finally { busy = false; }
   }
-
-  const guardObs = new MutationObserver(() => {
-    if (!busy) scrubAllEditorsAndText();
-  });
-
-  document.addEventListener("change", (e) => {
-    if (e.target?.tagName === "SELECT") {
-      setTimeout(hydrateCards, 25);
-      setTimeout(hydrateCards, 180);
-    }
-  });
-
-  document.addEventListener("input", (e) => {
-    const ph = (e.target?.getAttribute?.("placeholder") || "").toLowerCase();
-    if (ph.includes("single title") || ph.includes("override")) {
-      setTimeout(hydrateCards, 120);
-    }
-  });
-
-  loadBible().finally(() => {
-    if (document.body) {
-      guardObs.observe(document.body, { childList: true, subtree: true });
-    }
-    hydrateCards();
-    setTimeout(hydrateCards, 250);
-    setTimeout(hydrateCards, 800);
-    setInterval(scrubAllEditorsAndText, 600);
-  });
+  document.addEventListener("change", (e) => { if (e.target?.tagName === "SELECT") { setTimeout(() => updateCards(true), 25); setTimeout(() => updateCards(false), 180); } });
+  fetchV5().finally(() => { updateCards(true); setTimeout(() => updateCards(false), 350); setInterval(scrubSelects, 700); });
 })();
 </script>
 </body>
