@@ -1,0 +1,27 @@
+name: Get Chat ID
+
+on:
+  workflow_dispatch:
+
+jobs:
+  get-id:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Telegram Updates
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot9166211236:AAEzhJM_0DbHqcr6qFAwL4URwaiJFb0-dz0/getUpdates" > updates.json
+          cat updates.json
+      
+      - name: Parse Chat ID
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot9166211236:AAEzhJM_0DbHqcr6qFAwL4URwaiJFb0-dz0/getUpdates" | \
+          python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+if 'result' in data and len(data['result']) > 0:
+    chat = data['result'][0]['message']['chat']
+    print(f'Chat ID: {chat[\"id\"]}')
+    print(f'Username: @{chat.get(\"username\", \"NO USERNAME\")}')
+    print(f'First Name: {chat.get(\"first_name\", \"NO NAME\")}')
+else:
+    print('No updates found - message the bot first!')
