@@ -53,7 +53,6 @@ LAW #6: PLATFORM NATIVE CONTENT. Never copy the same post everywhere:
   - Instagram: Emotion, identity, visual storytelling, brand connection.
   - TikTok: Curiosity, pattern interrupt, fast discovery, new audience acquisition.
   - YouTube: Authority, story, long-form discovery, catalog building.
-  - Threads: Discussion, opinion, community, thought development.
   - X: Observations, questions, reactions, conversation.
   - Google / AI Crawlers: Clear relevance, structured knowledge, documentation, narrative, catalog depth.
 LAW #7: SEO IS FOREVER. Dedicated title, context, keywords, social mentions, and archive entry per song.
@@ -73,9 +72,9 @@ RULE: NEVER display or speak catalog ID numbers (STRAYD-ID-xxx) or list numbers 
 [META]
 ARTIST=Martin Strayd
 HOST=DJ ANNA
-MOTTO=One artist. One song per day. One catalog forever.
-IDENTITY=Martin Strayd is an Australian songwriter, lyricist, composer, independent artist, and catalog builder with a multi-decade songwriting history and a growing 100+ song catalog spanning Rock, Blues, Reggae, Anti-Pop, Story Songs, Social Commentary, and Soundtrack Music.
-RADIO_PROOF=Documented international radio airplay includes DZRH News Radyo (Philippines), RPP FM 98.7 (Australia), WREK Atlanta (United States), CTBC (Canada), Aligre FM 93.1 & Tonic Radio (France), Radio Milenaire FM 98.1 (Chile), Radio Ultimito Mix (Ecuador), RRI Pro 4 Denpasar (Indonesia), and Musichitz Looktung Station (Thailand).
+MOTTO=One artist. One song per day. One soundtrack.
+IDENTITY=Martin Strayd is an Australian songwriter, lyricist, composer, artist, with a multi-decade catalog of songwriting history and a growing 100+ song catalog spanning Rock, Blues, Reggae, Anti-Pop, Story Songs, Social Commentary, and Soundtrack Music.
+RADIO_PROOF=Documented international radio airplay includes DZRH News Radyo (Philippines), 3JJJ FM and RPP FM 98.7 (Australia), WREK Atlanta (United States), CTBC (Canada), Aligre FM 93.1 & Tonic Radio (France), Radio Milenaire FM 98.1 (Chile), Radio Ultimito Mix (Ecuador), RRI Pro 4 Denpasar (Indonesia), and Musichitz Looktung Station (Thailand).
 
 [LINKS]
 store=https://martinstrayd.github.io/artist/
@@ -91,11 +90,8 @@ tiktok=https://www.tiktok.com/
 instagram=https://www.instagram.com/
 x=https://x.com/compose/post
 youtube=https://studio.youtube.com/
-threads=https://www.threads.net/
-linkedin=https://www.linkedin.com/feed/
-reddit=https://www.reddit.com/submit
 
-[TEMPLATES]
+[EXAMPLE ONLY TEMPLATES]
 press=OFFICIAL PRESS RELEASE — SINGLE LAUNCH\nDATE: {{DATE}} | SOURCE: {{BIBLE_SOURCE}}\n\n"{{TITLE}}": MARTIN STRAYD AND DJ ANNA ADD A NEW CHAPTER TO THE DAILY SINGLES MEDIA EMPIRE\n\nGLOBAL BROADCAST DESK — Most artists release short-lived campaigns that vanish in a week; Martin Strayd builds a permanent catalog. Today, DJ ANNA introduces "{{TITLE}}" as the newest chapter in an independent daily-singles discovery network designed to accumulate value across 70, 700, and 7,000 songs.\n\n{{IDENTITY}} Rather than treating "{{TITLE}}" as an isolated track, ANNA frames every release as a story, an archive entry, and a bridge into a deeper universe of music where every song strengthens the chapters before and after it.\n\nLong before automated social campaigns existed, Martin Strayd songs were already travelling across borders. {{RADIO_PROOF}} That documented airplay proves organic discovery—and DJ ANNA builds on real evidence rather than manufactured hype.\n\n"Good evening. Somewhere on Earth somebody is hearing this song for the very first time," says DJ ANNA. "Today's Martin Strayd chapter is '{{TITLE}}'. Every song adds another permanent story to the archive—let's find out why listeners keep coming back. {{MOTTO}}"\n\nDISCOVERY & DIRECT ACCESS:\n- Spotify Artist Profile: {{spotify}}\n- Artist Hub & Catalog Archive: {{store}} | {{site}}\n- Direct Listener Support: PayPal ({{paypal}}) | Wise ({{wise}}) | Buy Me a Coffee ({{bmac}})\n\nTags: "{{TITLE}}", Martin Strayd, DJ ANNA, Daily Singles, Official Single Launch, #{{TAG}} #MartinStrayd #DJANNA #DailySingles
 
 facebook=🎙️ Good evening. Somewhere on Earth somebody is hearing "{{TITLE}}" by Martin Strayd for the very first time.\n\nMost artists release a campaign that disappears in a week. Martin Strayd is building a living catalog—one song, one day, one chapter at a time—backed by songs that have already reached radio stations from Australia and the US to France, Thailand, and Latin America.\n\nHere's the question for tonight's listeners: when "{{TITLE}}" comes on late at night, what story does the title alone put in your head? Drop your take in the comments and pass the discovery on to a friend.\n\n#{{TAG}} #DJANNA #MartinStrayd #DailySingles #MusicDiscovery
@@ -104,10 +100,8 @@ tiktok=🔥 STOP SCROLLING: Somewhere on Earth someone is hearing "{{TITLE}}" by
 
 instagram=🎧 DJ ANNA ON AIR — "{{TITLE}}" | Martin Strayd Daily Singles\n\nEvery day adds another chapter to a multi-decade catalog spanning Rock, Blues, Reggae, Anti-Pop, and Story Songs—with documented radio airplay across 9 countries.\n\nListen on Spotify: {{spotify}}\nCatalog Hub: {{store}}\n\n#{{TAG}} #DJANNA #MartinStrayd #DailySingles #CatalogFirst
 
-x=What happens when an independent songwriter adds a new chapter every single day instead of chasing one-week campaigns? DJ ANNA introduces "{{TITLE}}" by Martin Strayd: {{spotify}} #{{TAG}} #DJANNA #MartinStrayd
+x=What happens when a songwriter writes music every single day? Always sexy and always amazing', DJ ANNA introduces "{{TITLE}}" by Martin Strayd: {{spotify}} #{{TAG}} #DJANNA #MartinStrayd
 
-youtube=📺 "{{TITLE}}" — Martin Strayd (Introduced by DJ ANNA | Daily Singles)\n\n"Good evening. Somewhere on Earth somebody is hearing this song for the very first time." Today's chapter in the Martin Strayd catalog is "{{TITLE}}"—part of a growing archive with documented radio airplay across Australia, the US, Canada, France, Chile, Ecuador, Indonesia, Thailand, and the Philippines.\n\nSpotify: {{spotify}} | Artist Hub: {{store}} | Support: {{bmac}}\n\n#{{TAG}} #MartinStrayd #DJANNA #DailySingles
+youtube=📺 "{{TITLE}}" - Martin Strayd (Introduced by DJ ANNA | Daily Singles)\n\n"Good evening. Somewhere on Earth somebody is hearing this song for the very first time." Today's chapter in the Martin Strayd catalog is "{{TITLE}}"—part of a growing archive with documented radio airplay across Australia, the US, Canada, France, Chile, Ecuador, Indonesia, Thailand, and the Philippines.\n\nSpotify: {{spotify}} | Artist Hub: {{store}} | Support: {{bmac}}\n\n#{{TAG}} #MartinStrayd #DJANNA #DailySingles
 
-threads=📡 Tonight's chapter in the Martin Strayd daily singles archive: "{{TITLE}}". One song, one day, one growing catalog—no fake hype, just discovery. Listen: {{spotify}} #{{TAG}} #DJANNA #MartinStrayd
-
-default=📡 DJ ANNA Daily Singles — "{{TITLE}}" by Martin Strayd. {{MOTTO}} Spotify: {{spotify}} | Hub: {{store}} #{{TAG}} #DJANNA #MartinStrayd
+default=📡 DJ ANNA Daily Very Show — "{{TITLE}}" by Martin Strayd. {{MOTTO}} Spotify: {{spotify}} | Hub: {{store}} #{{TAG}} #DJANNA #MartinStrayd
