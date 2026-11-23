@@ -1765,242 +1765,126 @@
     init();
   })();
   </script>
-<script id="annaA1V5Engine">
+<script id="annaV5BroadcastEngine">
 (() => {
-  const BIBLE_PATHS = ["A1/docs/v5BIBLE", "./A1/docs/v5BIBLE", "../A1/docs/v5BIBLE"];
-  const VOICE_KEY = "anna_a1_v5_voice_v1";
-  const cfg = {
-    meta: {
-      ARTIST: "Martin Strayd",
-      HOST: "DJ ANNA",
-      MOTTO: "One artist. One song per day. One catalog forever.",
-      IDENTITY: "Martin Strayd is an Australian songwriter, lyricist, composer, independent artist, and catalog builder with a multi-decade songwriting history and a growing 100+ song catalog."
-    },
-    hooks: [
-      'Late-night radio just cut through the noise—and "{{TITLE}}" from Martin Strayd is why the room went quiet.',
-      'Forget waiting months for one single—we drop a brand-new chapter every 24 hours, and "{{TITLE}}" just hit the deck.',
-      'Somewhere on Earth right now, someone is hearing "{{TITLE}}" by Martin Strayd for the very first time.'
-    ],
-    stations: [
-      "DZRH News Radyo in the Philippines & RPP FM 98.7 in Australia",
-      "WREK Atlanta in the US & CTBC in Canada",
-      "Aligre FM 93.1 and Tonic Radio in France"
-    ],
-    closers: [
-      'Tell me in the comments what "{{TITLE}}" sparks for you—and pass it to a friend who actually listens.',
-      'One song. One day. One chapter. Spin "{{TITLE}}" and see where the catalog takes you next.'
-    ],
-    links: {
-      store: "https://martinstrayd.github.io/artist/",
-      site: "https://strayd.com/",
-      spotify: "https://open.spotify.com/artist/6aRM8IKV2HBUZRGnnDdrM0",
-      paypal: "https://www.paypal.com/paypalme/martinstrayd",
-      wise: "https://wise.com/pay/r/xGmJi9kSdap4lKo",
-      bmac: "https://buymeacoffee.com/martinstrayd"
-    },
-    targets: {
-      facebook: "https://www.facebook.com/",
-      tiktok: "https://www.tiktok.com/",
-      instagram: "https://www.instagram.com/",
-      x: "https://x.com/compose/post",
-      youtube: "https://studio.youtube.com/",
-      threads: "https://www.threads.net/",
-      linkedin: "https://www.linkedin.com/feed/",
-      reddit: "https://www.reddit.com/submit"
-    },
-    templates: {}
-  };
-  let spin = 0;
-  function cleanIds(s) {
-    return (s || "")
-      .replace(/\s*[\(\[]?\s*STRAYD-ID-[A-Z0-9_-]+\s*[\)\]]?\s*/gi, " ")
-      .replace(/^\s*\d{1,3}[\.\)\-:]\s*/gm, "")
-      .replace(/\(\s*\)/g, "").replace(/\[\s*\]/g, "")
-      .replace(/[ \t]{2,}/g, " ").replace(/\s+([,.;:!?])/g, "$1").trim();
+  const HOOKS = [
+    'Stop scrolling past algorithm filler—"{{TITLE}}" by Martin Strayd just hijacked today\'s daily single slot with zero corporate polish and total replay gravity.',
+    'Welcome back to the daily countdown where a new Martin Strayd single drops every 24 hours—tonight\'s spotlight locks straight onto "{{TITLE}}".',
+    'If MTV, late-night radio, and an editorial curator threw a track into heavy rotation today, "{{TITLE}}" is the one demanding the volume knob.',
+    'One new single every single day—no waiting a year for a label rollout. Today on air with DJ ANNA: "{{TITLE}}".'
+  ];
+  const ANGLES = [
+    'Raw on-air broadcast energy: bold hooks, real human stakes, and a song built to stick after the first chorus.',
+    'Countdown & catalog momentum: every daily drop stacks another brick in Martin Strayd\'s growing archive ready to own today.',
+    'Editorial & discovery angle: why independent daily singles cut through formulaic playlists and reward listeners who show up early.'
+  ];
+  const STORE = "https://martinstrayd.github.io/artist/";
+  const PAYPAL = "https://www.paypal.com/paypalme/martinstrayd";
+  const WISE = "https://wise.com/pay/r/xGmJi9kSdap4lKo";
+  const BMAC = "https://buymeacoffee.com/martinstrayd";
+
+  let tick = 0;
+
+  function stripSerials(str) {
+    return String(str || "")
+      .replace(/[\(\[]?\s*STRAYD[-_ ]?ID[-_ ]?[A-Z0-9_-]+\s*[\)\]]?/gi, "")
+      .replace(/(^|\n)\s*\d{1,3}[\.\)\-:]\s+/g, "$1")
+      .replace(/\(\s*\)/g, "")
+      .replace(/\[\s*\]/g, "")
+      .replace(/[ \t]{2,}/g, " ")
+      .replace(/\s+([,.;:!?])/g, "$1")
+      .trim();
   }
-  function parseV5(raw) {
-    const h = [], st = [], cl = [];
-    let sec = "";
-    for (const line of (raw || "").split(/\r?\n/)) {
-      const m = line.match(/^\[(META|HOOKS|STATIONS|CLOSERS|LINKS|TARGETS|TEMPLATES)\]\s*$/i);
-      if (m) { sec = m[1].toUpperCase(); continue; }
-      if (!sec || !line.trim() || line.trim().startsWith("#")) continue;
-      const eq = line.indexOf("=");
-      if (eq < 1) continue;
-      const k = line.slice(0, eq).trim();
-      const v = cleanIds(line.slice(eq + 1).replace(/\\n/g, "\n"));
-      if (sec === "META") cfg.meta[k] = v;
-      else if (sec === "HOOKS") h.push(v);
-      else if (sec === "STATIONS") st.push(v);
-      else if (sec === "CLOSERS") cl.push(v);
-      else if (sec === "LINKS") cfg.links[k] = v;
-      else if (sec === "TARGETS") cfg.targets[k] = v;
-      else if (sec === "TEMPLATES") cfg.templates[k] = v;
-    }
-    if (h.length) cfg.hooks = h;
-    if (st.length) cfg.stations = st;
-    if (cl.length) cfg.closers = cl;
-  }
-  async function fetchV5() {
-    for (const p of BIBLE_PATHS) {
-      try {
-        const r = await fetch(p, { cache: "no-store" });
-        if (r && r.ok) { parseV5(await r.text()); return true; }
-      } catch (_) {}
-    }
-    return false;
-  }
-  function scrubSelects() {
+
+  function currentTitle() {
     for (const sel of document.querySelectorAll("select")) {
-      for (const opt of Array.from(sel.options || [])) {
-        const cur = opt.textContent || "";
-        const next = cleanIds(cur);
-        if (next && cur !== next) { opt.textContent = next; opt.label = next; }
+      const opt = sel.options && sel.options[sel.selectedIndex];
+      const txt = stripSerials(opt ? (opt.textContent || opt.label || "") : "");
+      if (txt && !/select|choose|song|track/i.test(txt)) return txt;
+    }
+    return "Today's Daily Single";
+  }
+
+  function renderCopy(kind, title, idx) {
+    const cleanT = stripSerials(title);
+    const tag = cleanT.replace(/[^a-zA-Z0-9]+/g, "").slice(0, 24) || "DailySingle";
+    const hook = stripSerials(HOOKS[(tick + idx) % HOOKS.length]).split("{{TITLE}}").join(cleanT);
+    const angle = stripSerials(ANGLES[(tick + idx + 1) % ANGLES.length]).split("{{TITLE}}").join(cleanT);
+    const today = new Date().toISOString().slice(0, 10);
+
+    if (kind === "press") {
+      return stripSerials(
+        `FOR IMMEDIATE RELEASE — DAILY SINGLE DISPATCH (${today})\n\n` +
+        `"${cleanT}" FROM MARTIN STRAYD TAKES TODAY'S SPOTLIGHT AS DAILY SINGLES CATALOG EXPANDS\n\n` +
+        `${hook}\n\n` +
+        `${angle} Hosted by DJ ANNA across broadcast-style radio energy, podcast storytelling, and editorial curation, "${cleanT}" marks another daily release in Martin Strayd's ongoing single-a-day catalog—giving listeners and collectors a new track every day rather than waiting on slow album cycles.\n\n` +
+        `Own & support today's single:\n` +
+        `- Store: ${STORE}\n` +
+        `- PayPal: ${PAYPAL} | Wise: ${WISE} | Buy Me a Coffee: ${BMAC}\n\n` +
+        `#${tag} #MartinStrayd #DJANNA #DailySingles`
+      );
+    }
+    if (kind === "yt_title") {
+      return stripSerials(`"${cleanT}" — Martin Strayd | Daily Single with DJ ANNA (#${tag})`).slice(0, 100);
+    }
+    if (kind === "ig") {
+      return stripSerials(
+        `${hook}\n\n${angle}\n\nOwn & share: ${STORE}\nPayPal: ${PAYPAL} | Wise: ${WISE} | BMAC: ${BMAC}\n\n#${tag} #DJANNA #MartinStrayd #DailySingles`
+      );
+    }
+    return stripSerials(
+      `${hook} ${angle} Store: ${STORE} | PayPal: ${PAYPAL} | Wise: ${WISE} | BMAC: ${BMAC} #${tag} #DJANNA #MartinStrayd`
+    );
+  }
+
+  function classifyField(el, cardText) {
+    const meta = `${cardText} ${el.id || ""} ${el.name || ""} ${el.placeholder || ""}`.toLowerCase();
+    if (/press|release|dispatch|pitch/.test(meta)) return "press";
+    if (/youtube\s*title|yt\s*title|60[–-]100c/.test(meta)) return "yt_title";
+    if (/instagram/.test(meta)) return "ig";
+    return "social";
+  }
+
+  function sweepDom(bump) {
+    if (bump) tick += 1;
+    for (const sel of document.querySelectorAll("select")) {
+      for (const opt of sel.options || []) {
+        const cleaned = stripSerials(opt.textContent);
+        if (cleaned && opt.textContent !== cleaned) {
+          opt.textContent = cleaned;
+          opt.label = cleaned;
+        }
+      }
+    }
+    const title = currentTitle();
+    let i = 0;
+    for (const el of document.querySelectorAll("textarea, input[type='text'], [contenteditable='true']")) {
+      if (/search|filter|password|token|pat/i.test(`${el.id || ""} ${el.placeholder || ""}`)) continue;
+      const host = el.closest("article, section, .card, .panel, div") || document.body;
+      const kind = classifyField(el, (host.textContent || "").slice(0, 240));
+      const nextVal = renderCopy(kind, title, i++);
+      if (typeof el.value === "string") {
+        if (el.value !== nextVal) {
+          el.value = nextVal;
+          el.dispatchEvent(new Event("input", { bubbles: true }));
+          el.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      } else if (el.innerText !== nextVal) {
+        el.innerText = nextVal;
       }
     }
   }
-  function getSongTitle() {
-    const inp = document.querySelector("input[placeholder*='single title' i], input[placeholder*='override' i], #customTitleOverride");
-    const custom = inp && typeof inp.value === "string" ? cleanIds(inp.value) : "";
-    if (custom) return custom;
-    const sel = Array.from(document.querySelectorAll("select")).find((s) =>
-      Array.from(s.options || []).some((o) => (o.textContent || "").trim().length > 2)
-    );
-    const opt = sel ? sel.options[sel.selectedIndex] : null;
-    return cleanIds(opt ? opt.textContent : "") || "Tonight's Daily Single";
-  }
-  function pickItem(arr, off) {
-    if (!arr || !arr.length) return "";
-    return arr[Math.abs(spin + off) % arr.length];
-  }
-  function buildChannelText(ch, title, idx) {
-    const t = cleanIds(title);
-    const tag = t.replace(/[^a-zA-Z0-9]+/g, "").slice(0, 24) || "DailySingles";
-    const dateStr = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
-    const hook = pickItem(cfg.hooks, idx).split("{{TITLE}}").join(t);
-    const station = pickItem(cfg.stations, idx + 1);
-    const closer = pickItem(cfg.closers, idx + 2).split("{{TITLE}}").join(t);
-    let tpl = cfg.templates[ch] || cfg.templates.default || '📡 {{HOOK}} {{MOTTO}} Spotify: {{spotify}} | Hub: {{store}} #{{TAG}} #MartinStrayd';
-    const rep = {
-      "{{TITLE}}": t, "{{TAG}}": tag, "{{DATE}}": dateStr, "{{HOOK}}": hook, "{{STATION}}": station, "{{CLOSER}}": closer,
-      "{{MOTTO}}": cfg.meta.MOTTO || "", "{{IDENTITY}}": cfg.meta.IDENTITY || "",
-      "{{store}}": cfg.links.store || "", "{{site}}": cfg.links.site || "", "{{spotify}}": cfg.links.spotify || "",
-      "{{paypal}}": cfg.links.paypal || "", "{{wise}}": cfg.links.wise || "", "{{bmac}}": cfg.links.bmac || ""
-    };
-    for (const [k, v] of Object.entries(rep)) tpl = tpl.split(k).join(v);
-    let out = cleanIds(tpl);
-    if (ch === "x") out = out.slice(0, 278);
-    return out;
-  }
-  function detectCh(card) {
-    const h = ((card.querySelector("h1,h2,h3,h4,.card-title,.platform-title,.net-name")?.textContent || "") + " " + (card.textContent || "").slice(0, 180)).toLowerCase();
-    if (/press\s*release|pitch\s*deck|slots|rep/i.test(h)) return "press";
-    if (/tiktok/i.test(h)) return "tiktok";
-    if (/instagram/i.test(h)) return "instagram";
-    if (/\b(x|twitter)\b/i.test(h)) return "x";
-    if (/youtube|shorts/i.test(h)) return "youtube";
-    if (/threads/i.test(h)) return "threads";
-    if (/facebook/i.test(h)) return "facebook";
-    if (/linkedin|reddit/i.test(h)) return "default";
-    return null;
-  }
-  function pickVoice() {
-    if (!("speechSynthesis" in window)) return null;
-    const vs = window.speechSynthesis.getVoices() || [];
-    if (!vs.length) return null;
-    let saved = "";
-    try { saved = localStorage.getItem(VOICE_KEY) || ""; } catch (_) {}
-    if (saved) { const m = vs.find((v) => v.name === saved || v.voiceURI === saved); if (m) return m; }
-    const fem = /female|woman|zira|aria|jenny|sonia|libby|maisie|natasha|hazel|emma|olivia|samantha|victoria/i;
-    const male = /\bmale\b|\bman\b|\bdavid\b|\bmark\b|\bguy\b|\bryan\b|\balex\b|\bdaniel\b|\bgeorge\b/i;
-    const best = vs.map((v) => {
-      const lbl = `${v.name || ""} ${v.voiceURI || ""} ${v.lang || ""}`;
-      let s = /^en/i.test(v.lang || "") ? 20 : 0;
-      if (fem.test(lbl)) s += 70;
-      if (v.localService) s += 10;
-      if (male.test(lbl)) s -= 90;
-      return { v, s };
-    }).sort((a, b) => b.s - a.s)[0];
-    if (best?.v) { try { localStorage.setItem(VOICE_KEY, best.v.name || best.v.voiceURI || ""); } catch (_) {} }
-    return best ? best.v : vs[0];
-  }
-  async function copyVal(txt) {
-    const c = cleanIds(txt);
-    if (!c) return false;
-    try { if (navigator.clipboard?.writeText) { await navigator.clipboard.writeText(c); return true; } } catch (_) {}
-    try {
-      const ta = document.createElement("textarea");
-      ta.value = c; ta.style.position = "fixed"; ta.style.opacity = "0";
-      document.body.appendChild(ta); ta.select();
-      const ok = document.execCommand("copy");
-      document.body.removeChild(ta);
-      return ok;
-    } catch (_) { return false; }
-  }
-  if ("speechSynthesis" in window && !window.__annaA1VoiceGuard) {
-    window.__annaA1VoiceGuard = true;
-    const rawSpeak = window.speechSynthesis.speak.bind(window.speechSynthesis);
-    window.speechSynthesis.speak = (u) => { if (u && typeof u.text === "string") u.text = cleanIds(u.text); return rawSpeak(u); };
-  }
-  let busy = false;
-  function updateCards(bump = false) {
-    if (busy) return;
-    busy = true;
-    try {
-      if (bump) spin += 1;
-      scrubSelects();
-      const title = getSongTitle();
-      let idx = 0;
-      for (const card of document.querySelectorAll("article,section,.card,.post-card,.social-card,.platform-card,.panel")) {
-        const ch = detectCh(card);
-        if (!ch) continue;
-        const ed = card.querySelector("textarea,[contenteditable='true'],.post-text,.caption-box,.press-body");
-        if (!ed) continue;
-        const val = buildChannelText(ch, title, idx++);
-        if (typeof ed.value === "string") {
-          if (ed.value !== val) { ed.value = val; ed.dispatchEvent(new Event("input", { bubbles: true })); }
-        } else if (ed.innerText !== val) {
-          ed.innerText = val; ed.dispatchEvent(new Event("input", { bubbles: true }));
-        }
-        const btns = Array.from(card.querySelectorAll("button"));
-        const postBtn = btns.find((b) => /^post$/i.test((b.textContent || "").trim()));
-        const copyBtn = btns.find((b) => /^copy$/i.test((b.textContent || "").trim()));
-        const speakBtn = btns.find((b) => /^(speak|stop)$/i.test((b.textContent || "").trim()));
-        if (copyBtn && !copyBtn.dataset.a1v5Copy) {
-          copyBtn.dataset.a1v5Copy = "1";
-          copyBtn.addEventListener("click", async (e) => { e.preventDefault(); e.stopPropagation(); await copyVal(typeof ed.value === "string" ? ed.value : (ed.innerText || "")); }, true);
-        }
-        if (speakBtn && !speakBtn.dataset.a1v5Speak) {
-          speakBtn.dataset.a1v5Speak = "1";
-          speakBtn.addEventListener("click", (e) => {
-            e.preventDefault(); e.stopPropagation();
-            if (!("speechSynthesis" in window)) return;
-            if (window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); speakBtn.textContent = "Speak"; return; }
-            const spoken = cleanIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
-            if (!spoken) return;
-            const u = new SpeechSynthesisUtterance(spoken);
-            const v = pickVoice();
-            if (v) { u.voice = v; u.lang = v.lang || "en-US"; }
-            u.pitch = 1.08; u.rate = 0.98;
-            speakBtn.textContent = "Stop";
-            u.onend = () => { speakBtn.textContent = "Speak"; };
-            u.onerror = () => { speakBtn.textContent = "Speak"; };
-            window.speechSynthesis.speak(u);
-          }, true);
-        }
-        if (postBtn && !postBtn.dataset.a1v5Post) {
-          postBtn.dataset.a1v5Post = "1";
-          postBtn.addEventListener("click", async (e) => {
-            e.preventDefault(); e.stopPropagation();
-            await copyVal(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
-            window.open(cfg.targets[ch] || cfg.targets.facebook, "_blank", "noopener,noreferrer");
-          }, true);
-        }
-      }
-    } finally { busy = false; }
-  }
-  document.addEventListener("change", (e) => { if (e.target?.tagName === "SELECT") { setTimeout(() => updateCards(true), 25); setTimeout(() => updateCards(false), 180); } });
-  fetchV5().finally(() => { updateCards(true); setTimeout(() => updateCards(false), 350); setInterval(scrubSelects, 700); });
+
+  document.addEventListener("change", () => setTimeout(() => sweepDom(true), 30), true);
+  document.addEventListener("click", (e) => {
+    const b = e.target && e.target.closest && e.target.closest("button");
+    if (b && /refresh|regen|spin|next|generate|new/i.test(b.textContent || "")) {
+      setTimeout(() => sweepDom(true), 40);
+    }
+  }, true);
+
+  sweepDom(false);
+  setInterval(() => sweepDom(false), 600);
 })();
 </script>
 </body>
