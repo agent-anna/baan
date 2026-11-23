@@ -1,0 +1,60 @@
+# ANNA V5 BIBLE — THE DAILY SINGLES MEDIA EMPIRE (A1 v4+)
+
+[META]
+ARTIST=Martin Strayd
+HOST=DJ ANNA
+MOTTO=One artist. One song per day. One catalog forever.
+IDENTITY=Martin Strayd is an Australian songwriter, lyricist, composer, independent artist, and catalog builder with a multi-decade songwriting history and a growing 100+ song catalog spanning Rock, Blues, Reggae, Anti-Pop, Story Songs, Social Commentary, and Soundtrack Music.
+RADIO_PROOF=Documented international radio airplay includes DZRH News Radyo (Philippines), RPP FM 98.7 (Australia), WREK Atlanta (United States), CTBC (Canada), Aligre FM 93.1 & Tonic Radio (France), Radio Milenaire FM 98.1 (Chile), Radio Ultimito Mix (Ecuador), RRI Pro 4 Denpasar (Indonesia), and Musichitz Looktung Station (Thailand).
+
+[HOOKS]
+h1=Late-night radio just cut through the noise—and "{{TITLE}}" from Martin Strayd is why the room went quiet.
+h2=Forget waiting months for one single—we drop a brand-new chapter every 24 hours, and "{{TITLE}}" just hit the deck.
+h3=Somewhere on Earth right now, someone is hearing "{{TITLE}}" by Martin Strayd for the very first time.
+h4=Why does an independent catalog built one song a day hit harder than a corporate release calendar? Cue "{{TITLE}}".
+h5=DJ ANNA on the mic: if "{{TITLE}}" came through your speakers tonight, what story would it start?
+
+[STATIONS]
+s1=DZRH News Radyo in the Philippines & RPP FM 98.7 in Australia
+s2=WREK Atlanta in the US & CTBC in Canada
+s3=Aligre FM 93.1 and Tonic Radio in France
+s4=Radio Milenaire FM 98.1 in Chile & Radio Ultimito Mix in Ecuador
+s5=RRI Pro 4 Denpasar in Indonesia & Musichitz Looktung Station in Thailand
+
+[CLOSERS]
+c1=Tell me in the comments what "{{TITLE}}" sparks for you—and pass it to a friend who actually listens.
+c2=One song. One day. One chapter. Spin "{{TITLE}}" and see where the catalog takes you next.
+c3=Drop your reaction to "{{TITLE}}" below—real discovery beats fake hype every single time.
+
+[LINKS]
+store=https://martinstrayd.github.io/artist/
+site=https://strayd.com/
+spotify=https://open.spotify.com/artist/6aRM8IKV2HBUZRGnnDdrM0
+paypal=https://www.paypal.com/paypalme/martinstrayd
+wise=https://wise.com/pay/r/xGmJi9kSdap4lKo
+bmac=https://buymeacoffee.com/martinstrayd
+
+[TARGETS]
+facebook=https://www.facebook.com/
+tiktok=https://www.tiktok.com/
+instagram=https://www.instagram.com/
+x=https://x.com/compose/post
+youtube=https://studio.youtube.com/
+threads=https://www.threads.net/
+linkedin=https://www.linkedin.com/feed/
+reddit=https://www.reddit.com/submit
+
+[TEMPLATES]
+press=OFFICIAL PRESS RELEASE — SINGLE LAUNCH\nDATE: {{DATE}} | BIBLE: A1/docs/v5BIBLE\n\n"{{TITLE}}": MARTIN STRAYD AND DJ ANNA ADD ANOTHER CHAPTER TO THE DAILY SINGLES ARCHIVE\n\n{{HOOK}}\n\n{{IDENTITY}} Rather than releasing a short-lived campaign that fades after a week, Martin Strayd builds a permanent catalog where every daily single adds a new chapter, story, and discovery path across 70, 700, or 7,000 tracks.\n\nHosted on air by DJ ANNA—blending late-night radio host instinct, music scout curiosity, and podcast storytelling—"{{TITLE}}" is introduced around its title and story before details or links. {{RADIO_PROOF}} demonstrates real-world discovery without manufacturing fake hype.\n\n"Good evening. This is DJ ANNA. Every single day brings another chapter from Martin Strayd—let's hear what '{{TITLE}}' uncovers tonight. {{MOTTO}}"\n\nHUBS & SUPPORT:\n- Spotify: {{spotify}}\n- Artist Hub & Site: {{store}} | {{site}}\n- Support: PayPal ({{paypal}}) | Wise ({{wise}}) | Buy Me a Coffee ({{bmac}})\n\nTags: "{{TITLE}}", Martin Strayd, DJ ANNA, Daily Singles, Single Launch, #{{TAG}} #MartinStrayd #DJANNA #DailySingles
+
+facebook=🎙️ {{HOOK}}\n\nMost artists chase a single moment and disappear. Martin Strayd is building a living catalog—one song, one day, one chapter—with real radio history reaching stations like {{STATION}}.\n\n{{CLOSER}}\n\n#{{TAG}} #DJANNA #MartinStrayd #DailySingles
+
+tiktok=🔥 {{HOOK}}\n\n{{MOTTO}} No fake hype—just a fresh song every 24 hours with real stories and DJ ANNA on the mic. {{CLOSER}}\n\n#{{TAG}} #DJANNA #MartinStrayd #DailySingles
+
+instagram=🎧 {{HOOK}}\n\nEvery day adds a new chapter across rock, blues, reggae, anti-pop, and story songs—with radio airplay reaching {{STATION}}.\n\nSpotify: {{spotify}}\nHub: {{store}}\n\n#{{TAG}} #DJANNA #MartinStrayd #DailySingles
+
+x={{HOOK}} DJ ANNA on "{{TITLE}}" by Martin Strayd: {{spotify}} #{{TAG}} #DJANNA #MartinStrayd
+
+youtube=📺 {{HOOK}}\n\nDJ ANNA introduces "{{TITLE}}" as today's chapter in Martin Strayd's daily singles archive—with documented radio airplay across {{STATION}}.\n\nSpotify: {{spotify}} | Hub: {{store}} | Support: {{bmac}}\n\n#{{TAG}} #DJANNA #MartinStrayd #DailySingles
+
+default=📡 {{HOOK}} {{MOTTO}} Spotify: {{spotify}} | Hub: {{store}} #{{TAG}} #DJANNA #MartinStrayd
