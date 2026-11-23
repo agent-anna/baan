@@ -1765,6 +1765,205 @@
     init();
   })();
   </script>
+<script id="annaV5ExampleEngine">
+(() => {
+  const BIBLE_URLS = [
+    "https://raw.githubusercontent.com/agent-anna/baan/main/A1/docs/v5BIBLE",
+    "A1/docs/v5BIBLE",
+    "../A1/docs/v5BIBLE",
+    "../../A1/docs/v5BIBLE",
+    "docs/v5BIBLE",
+    "../docs/v5BIBLE"
+  ];
+  const state = {
+    source: "A1/docs/v5BIBLE",
+    meta: {
+      ARTIST: "Martin Strayd",
+      HOST: "DJ ANNA",
+      MOTTO: "One artist. One song per day. One catalog forever.",
+      IDENTITY: "Martin Strayd is an Australian songwriter, lyricist, composer, independent artist, and catalog builder with a multi-decade songwriting history and a growing 100+ song catalog spanning Rock, Blues, Reggae, Anti-Pop, Story Songs, Social Commentary, and Soundtrack Music.",
+      RADIO_PROOF: "Documented international radio airplay includes DZRH News Radyo (Philippines), RPP FM 98.7 (Australia), WREK Atlanta (United States), CTBC (Canada), Aligre FM 93.1 & Tonic Radio (France), Radio Milenaire FM 98.1 (Chile), Radio Ultimito Mix (Ecuador), RRI Pro 4 Denpasar (Indonesia), and Musichitz Looktung Station (Thailand)."
+    },
+    hooks: [
+      'Good evening. Somewhere on Earth somebody is hearing "{{TITLE}}" by Martin Strayd for the very first time.',
+      'Late-night radio just cut through the noise--and "{{TITLE}}" from Martin Strayd is why the room went quiet.',
+      'Forget waiting months for one single--we drop a brand-new chapter every 24 hours, and "{{TITLE}}" just hit the deck.',
+      'Why does an independent catalog built one song a day hit harder than a corporate release calendar? Cue "{{TITLE}}".',
+      'DJ ANNA on the mic: if "{{TITLE}}" came through your speakers tonight, what story would it start?'
+    ],
+    stations: [
+      "DZRH News Radyo in the Philippines & RPP FM 98.7 in Australia",
+      "WREK Atlanta in the US & CTBC in Canada",
+      "Aligre FM 93.1 and Tonic Radio in France",
+      "Radio Milenaire FM 98.1 in Chile & Radio Ultimito Mix in Ecuador",
+      "RRI Pro 4 Denpasar in Indonesia & Musichitz Looktung Station in Thailand"
+    ],
+    closers: [
+      'Tell me in the comments what "{{TITLE}}" sparks for you--and pass it to a friend who actually listens.',
+      'One song. One day. One chapter. Spin "{{TITLE}}" and see where the catalog takes you next.',
+      'Drop your reaction to "{{TITLE}}" below--real discovery beats fake hype every single time.'
+    ],
+    links: {
+      store: "https://martinstrayd.github.io/artist/",
+      site: "https://strayd.com/",
+      spotify: "https://open.spotify.com/artist/6aRM8IKV2HBUZRGnnDdrM0",
+      paypal: "https://www.paypal.com/paypalme/martinstrayd",
+      wise: "https://wise.com/pay/r/xGmJi9kSdap4lKo",
+      bmac: "https://buymeacoffee.com/martinstrayd"
+    },
+    examples: {}
+  };
+  let spin = 0;
+  function cleanText(raw) {
+    return String(raw || "")
+      .replace(/[\(\[]?\s*STRAYD[-_ ]?ID[-_ ]?[A-Z0-9_-]+\s*[\)\]]?/gi, "")
+      .replace(/(^|\n)\s*\d{1,3}[\.\)\-:]\s+/g, "$1")
+      .replace(/\(\s*\)/g, "").replace(/\[\s*\]/g, "")
+      .replace(/[ \t]{2,}/g, " ").replace(/\s+([,.;:!?])/g, "$1").trim();
+  }
+  function parseBible(raw, srcLabel) {
+    let sec = "";
+    const hooks = [], stations = [], closers = [];
+    const meta = { ...state.meta }, links = { ...state.links }, examples = {};
+    for (const line of String(raw || "").split(/\r?\n/)) {
+      const m = line.match(/^\[([A-Z0-9_ -]+)\]\s*$/i);
+      if (m) { sec = m[1].trim().toUpperCase(); continue; }
+      if (!sec || !line.trim() || line.trim().startsWith("#")) continue;
+      const eq = line.indexOf("=");
+      if (eq < 1) continue;
+      const k = line.slice(0, eq).trim();
+      const v = line.slice(eq + 1).replace(/\\n/g, "\n").trim();
+      if (sec === "META") meta[k.toUpperCase()] = cleanText(v);
+      else if (sec === "HOOKS") hooks.push(cleanText(v));
+      else if (sec === "STATIONS") stations.push(cleanText(v));
+      else if (sec === "CLOSERS") closers.push(cleanText(v));
+      else if (sec === "LINKS" && v) links[k.toLowerCase()] = v;
+      else if (sec === "EXAMPLE ONLY TEMPLATES" || sec === "TEMPLATES") examples[k.toLowerCase()] = v;
+    }
+    state.source = srcLabel || state.source;
+    state.meta = meta;
+    if (hooks.length) state.hooks = hooks;
+    if (stations.length) state.stations = stations;
+    if (closers.length) state.closers = closers;
+    state.links = links;
+    if (Object.keys(examples).length) state.examples = examples;
+  }
+  async function loadBible() {
+    for (const u of BIBLE_URLS) {
+      try {
+        const r = await fetch(`${u}${u.includes("?") ? "&" : "?"}t=${Date.now()}`, { cache: "no-store" });
+        if (r && r.ok) {
+          const t = await r.text();
+          if (t && t.includes("[")) {
+            parseBible(t, u.replace(/^https?:\/\/[^/]+\/[^/]+\/[^/]+\/main\//, ""));
+            runPass(false);
+            return;
+          }
+        }
+      } catch (_) {}
+    }
+  }
+  function getTitle() {
+    const ov = document.querySelector("#customTitleOverride, input[placeholder*='single title' i], input[placeholder*='override' i]");
+    if (ov && typeof ov.value === "string" && cleanText(ov.value)) return cleanText(ov.value);
+    for (const sel of document.querySelectorAll("select")) {
+      const opt = sel.options && sel.options[sel.selectedIndex];
+      const lbl = cleanText(opt ? (opt.textContent || opt.label || "") : "");
+      if (lbl && !/select|choose|song|track/i.test(lbl)) return lbl;
+    }
+    return "Today's Daily Single";
+  }
+  function interpolate(tpl, title, idx) {
+    const t = cleanText(title);
+    const tag = t.replace(/[^a-zA-Z0-9]+/g, "").slice(0, 24) || "DailySingle";
+    const dateStr = new Date().toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+    const hook = state.hooks[(spin + idx) % state.hooks.length];
+    const station = state.stations[(spin + idx) % state.stations.length];
+    const closer = state.closers[(spin + idx) % state.closers.length];
+    let out = String(tpl || "");
+    if (spin > 0) {
+      out = out.replace(/Good evening\. Somewhere on Earth somebody is hearing [^\n]+? for the very first time\./i, hook);
+    }
+    return cleanText(
+      out.split("{{TITLE}}").join(t).split("{{HOOK}}").join(hook).split("{{STATION}}").join(station)
+        .split("{{CLOSER}}").join(closer).split("{{DATE}}").join(dateStr).split("{{BIBLE_SOURCE}}").join(state.source)
+        .split("{{TAG}}").join(tag).split("{{IDENTITY}}").join(state.meta.IDENTITY || "")
+        .split("{{RADIO_PROOF}}").join(state.meta.RADIO_PROOF || "").split("{{MOTTO}}").join(state.meta.MOTTO || "")
+        .split("{{store}}").join(state.links.store).split("{{site}}").join(state.links.site)
+        .split("{{spotify}}").join(state.links.spotify).split("{{paypal}}").join(state.links.paypal)
+        .split("{{wise}}").join(state.links.wise).split("{{bmac}}").join(state.links.bmac)
+    );
+  }
+  function kindFor(el, txt) {
+    const h = `${txt} ${el.id || ""} ${el.name || ""} ${el.placeholder || ""}`.toLowerCase();
+    if (/press|release|dispatch|pitch/.test(h)) return "press";
+    if (/youtube\s*title|yt\s*title|60[â€“-]100c/.test(h)) return "yt_title";
+    if (/youtube/.test(h)) return "youtube";
+    if (/facebook/.test(h)) return "facebook";
+    if (/tiktok/.test(h)) return "tiktok";
+    if (/instagram/.test(h)) return "instagram";
+    if (/\bx\b|twitter/.test(h)) return "x";
+    return "default";
+  }
+  function buildFor(kind, title, idx) {
+    if (kind === "yt_title") {
+      const t = cleanText(title);
+      const tag = t.replace(/[^a-zA-Z0-9]+/g, "").slice(0, 20) || "DailySingle";
+      return cleanText(`"${t}" - Martin Strayd | Daily Singles with DJ ANNA (#${tag})`).slice(0, 100);
+    }
+    const tpl = state.examples[kind] || state.examples.default || '{{HOOK}}\n\n{{MOTTO}} Spotify: {{spotify}} | Hub: {{store}} #{{TAG}} #DJANNA #MartinStrayd';
+    return interpolate(tpl, title, idx);
+  }
+  let busy = false;
+  function runPass(bump) {
+    if (busy) return;
+    busy = true;
+    try {
+      if (bump) spin += 1;
+      for (const sel of document.querySelectorAll("select")) {
+        for (const opt of sel.options || []) {
+          const c = cleanText(opt.textContent);
+          if (c && opt.textContent !== c) { opt.textContent = c; opt.label = c; }
+        }
+      }
+      const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      let n;
+      while ((n = w.nextNode())) {
+        const p = n.parentElement;
+        if (!p || /^(SCRIPT|STYLE|TEXTAREA|INPUT|SELECT|OPTION)$/i.test(p.tagName)) continue;
+        if (/STRAYD[-_ ]?ID/i.test(n.nodeValue || "")) {
+          const c = cleanText(n.nodeValue);
+          if (c && n.nodeValue !== c) n.nodeValue = c;
+        }
+      }
+      const title = getTitle();
+      let idx = 0;
+      for (const el of document.querySelectorAll("textarea, input[type='text'], [contenteditable='true']")) {
+        if (/search|filter|token|pat|password|override/i.test(`${el.id || ""} ${el.placeholder || ""}`)) continue;
+        const box = el.closest("article, section, .card, .panel, div") || document.body;
+        const nextVal = buildFor(kindFor(el, (box.textContent || "").slice(0, 240)), title, idx++);
+        if (typeof el.value === "string") {
+          if (el.value !== nextVal) {
+            el.value = nextVal;
+            el.dispatchEvent(new Event("input", { bubbles: true }));
+            el.dispatchEvent(new Event("change", { bubbles: true }));
+          }
+        } else if (el.innerText !== nextVal) {
+          el.innerText = nextVal;
+        }
+      }
+    } finally { busy = false; }
+  }
+  document.addEventListener("change", () => setTimeout(() => runPass(true), 25), true);
+  document.addEventListener("click", (e) => {
+    const b = e.target && e.target.closest && e.target.closest("button");
+    if (b && /refresh|regen|spin|next|generate|new|bible|load/i.test(b.textContent || "")) setTimeout(() => runPass(true), 40);
+  }, true);
+  loadBible();
+  runPass(false);
+  setInterval(() => runPass(false), 600);
+})();
+</script>
 </body>
 </html>
 
