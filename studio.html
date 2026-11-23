@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A1 / v4 Command • Agent Anna Social Master</title>
+  <style>
+    :root {
+      --bg: #090c12;
+      --panel: #111724;
+      --panel-2: #172033;
+      --text: #f3f6fb;
+      --muted: #98a6bd;
+      --line: rgba(148, 163, 184, 0.18);
+      --accent: #e5b84b;
+      --accent-ink: #090c12;
+      --ok: #a3e635;
+      --sky: #38bdf8;
+      --warn: #fbbf24;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+    .topbar h1 { margin: 0; font-size: 1.32rem; }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    .waiting-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #0b0f18;
+      color: var(--muted);
+    }
+    .waiting-pill.busy { border-color: var(--warn); color: var(--warn); }
+    .hero {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 24px;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
+    }
+    .sleeve-wrap { display: flex; flex-direction: column; gap: 10px; }
+    .sleeve {
+      width: 300px;
+      max-width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #0b0f18;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      position: relative;
+    }
+    .sleeve:hover { border-color: var(--accent); }
+    .sleeve img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sleeve-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .sleeve-actions button { width: auto; padding: 6px 11px; font-size: 0.78rem; }
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .hero-title { font-size: 1.55rem; font-weight: 800; margin: 0 0 8px; line-height: 1.2; }
+    .hero-meta { margin: 6px 0; color: var(--muted); font-size: 0.9rem; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .badge {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #0b0f18;
+      border: 1px solid var(--line);
+      color: var(--sky);
+    }
+    .workspace {
+      display: grid;
+      grid-template-columns: 390px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    @media (max-width: 980px) { .workspace { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    label { display: block; font-size: 0.8rem; color: var(--muted); margin: 10px 0 4px; }
+    label:first-of-type { margin-top: 0; }
+    input, select, textarea, button {
+      width: 100%;
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      background: #0b0f18;
+      color: var(--text);
+      padding: 9px 12px;
+      font-size: 0.9rem;
+    }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--sky); }
+    textarea {
+      min-height: 112px;
+      font-family: ui-monospace, Consolas, Menlo, monospace;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    textarea.press-area { min-height: 295px; }
+    textarea.deck-area { min-height: 220px; }
+    button {
+      cursor: pointer;
+      font-weight: 700;
+      background: var(--panel-2);
+      transition: border-color 0.15s ease, transform 0.08s ease;
+    }
+    button:hover { border-color: var(--accent); }
+    button:active { transform: translateY(1px); }
+    button.primary { background: var(--ok); color: var(--accent-ink); border: none; }
+    button.accent { background: var(--accent); color: var(--accent-ink); border: none; }
+    button.post-btn { background: var(--sky); color: var(--accent-ink); border: none; }
+    button.tts-btn {
+      background: #132238;
+      color: var(--accent);
+      border-color: rgba(229, 184, 75, 0.45);
+    }
+    button.tts-btn.speaking { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    button.save-btn.saved { border-color: var(--ok); color: var(--ok); }
+    .actions { display: grid; gap: 8px; margin-top: 14px; }
+    .chat-log {
+      background: #0b0f18;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      max-height: 230px;
+      overflow-y: auto;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+    .chat-msg { margin-bottom: 9px; }
+    .chat-msg:last-child { margin-bottom: 0; }
+    .chat-msg strong { color: var(--accent); }
+    .chat-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+    .chat-row button { width: auto; padding: 9px 16px; }
+    .channel {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .channel:last-child { margin-bottom: 0; }
+    .channel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--sky);
+      margin-bottom: 8px;
+    }
+    .insights-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .insight-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #0b0f18;
+      border: 1px solid rgba(163, 230, 53, 0.3);
+      color: var(--ok);
+    }
+    .stats { color: var(--muted); font-weight: 600; font-size: 0.78rem; }
+    .stats.ok { color: var(--ok); }
+    .stats.over { color: var(--warn); }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .action-chip { width: auto; padding: 6px 11px; font-size: 0.78rem; }
+    .teleprompter {
+      display: none;
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #0b0f18;
+      border: 1px solid rgba(229, 184, 75, 0.45);
+      color: var(--text);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+    .teleprompter.open { display: block; }
+    .teleprompter-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .teleprompter-close { width: auto; padding: 3px 9px; font-size: 0.72rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div>
+        <h1>A1 / v4 Command • Agent Anna Social Master</h1>
+        <div class="muted" id="headerSub">Daily Single Drop Engine • 2027+ SEO &amp; Tags • Store: https://martinstrayd.github.io/artist/ • Wise + PayPal + Buy Me a Coffee</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span class="waiting-pill" id="waitIndicator">Idle • Ready</span>
+        <span class="muted" id="bootStatus">Ready</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Featured Cover Artwork">
+        <div class="sleeve-wrap">
+          <div class="sleeve" id="sleeveClickBox" title="Click sleeve to copy image to clipboard">
+            <img id="artPreview" src="" alt="Cover Sleeve" />
+          </div>
+          <div class="sleeve-actions">
+            <button type="button" id="copyArtBtn">Copy Image</button>
+            <button type="button" id="copyArtUrlBtn">Copy Art Link</button>
+          </div>
+          <div class="muted" id="artCopyHint">Click cover or Copy Image to paste straight into posts</div>
+        </div>
+        <div>
+          <div class="eyebrow">A1 / v4 Daily Release Command • Agent Anna Modern DJ &amp; Host</div>
+          <div class="hero-title" id="heroTitle"></div>
+          <div class="hero-meta" id="artFileMeta"></div>
+          <div class="hero-meta" id="sceneBriefMeta">Live-action direction: realistic live-action cinematography only.</div>
+          <div class="hero-meta" id="visualRuleMeta">Visual law: Strictly realistic live-action cinematography only.</div>
+          <div class="badges" id="statusBadges"></div>
+          <div class="muted" id="engineModeMeta" style="margin-top:8px;">New Music Daily (Not Monthly) • Store + Wise + PayPal + Buy Me a Coffee</div>
+          <div class="muted" id="gateStatus" style="margin-top:8px;">Approval gate: Browser-ready — Read, Speak, Edit, Save, Copy, Post, or OK To Post</div>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <aside>
+          <section class="card">
+            <div class="card-title">1. A1 Single Roll, Source &amp; Sales Rails</div>
+
+            <label for="sourceUrlIn">Live Source JSON URL (agent-anna/baan)</label>
+            <input id="sourceUrlIn" type="text" value="https://raw.githubusercontent.com/agent-anna/baan/main/A1/strayd/strayd-artist-live.json" />
+            <button type="button" id="reloadSourceBtn">Fetch Live JSON From Source</button>
+
+            <label for="loadStrategy">On-Load Single Pick Mode</label>
+            <select id="loadStrategy">
+              <option value="first_json" selected>First Item in Live JSON on Load</option>
+              <option value="random">Non-Repeating Random + Full Picker</option>
+              <option value="daily_az">Scheduled Single Roll (1/Day • 365-Day Loop)</option>
+            </select>
+
+            <label for="songPicker">Select Single (Live JSON)</label>
+            <select id="songPicker"></select>
+
+            <label for="customSong">Custom Single Title Override (Locked Verbatim)</label>
+            <input id="customSong" type="text" placeholder="Type single title or leave blank..." />
+
+            <label for="a1JsonFile">Load Local JSON File (Optional)</label>
+            <input id="a1JsonFile" type="file" accept=".json,application/json" />
+
+            <label for="a1RawJson">Paste / Edit JSON Directly (Optional)</label>
+            <textarea id="a1RawJson" style="min-height:80px;" placeholder="Paste strayd-artist-live.json content here if needed..."></textarea>
+            <button type="button" id="parseA1JsonBtn">Load JSON Into Picker</button>
+
+            <label for="cadenceMode">Release Cadence</label>
+            <select id="cadenceMode">
+              <option value="single_day">New Single Every Day (TT 2–3/d • FB 1/d • IG 1+Stories • X 5–10/d)</option>
+              <option value="multi_burst">High-Impact Daily Burst (Max Push)</option>
+            </select>
+
+            <label for="keywordsInput">2027+ Search Keywords, Hashtag Seeds &amp; Angles</label>
+            <input id="keywordsInput" type="text" value="new single every day, modern DJ radio, MP3 + cover art bundle, replay hook, daily music release" />
+
+            <label for="rotationShift">On-Air Presenter Rotation</label>
+            <select id="rotationShift">
+              <option value="auto">Auto (Fresh Presenter Rotation)</option>
+              <option value="0">01 • Daily Drop Modern DJ Cue</option>
+              <option value="1">02 • Podcast Studio Story</option>
+              <option value="2">03 • Live Announcer Spotlight</option>
+              <option value="3">04 • Store + Wise + PayPal + BMAC Pitch</option>
+              <option value="4">05 • Replay &amp; Hook Callout</option>
+              <option value="5">06 • Listener Debate Opener</option>
+              <option value="6">07 • Send-To-A-Friend Drop</option>
+            </select>
+
+            <label for="directLink">Official Store Link</label>
+            <input id="directLink" type="text" value="https://martinstrayd.github.io/artist/" />
+
+            <label for="paypalLink">PayPal.me Direct Link ($6.17 USD)</label>
+            <input id="paypalLink" type="text" value="https://www.paypal.com/paypalme/martinstrayd" />
+
+            <label for="bmacLink">Buy Me a Coffee Direct</label>
+            <input id="bmacLink" type="text" value="https://buymeacoffee.com/martinstrayd" />
+
+            <label for="wiseNote">Wise / Payment Checkout Note (200 THB)</label>
+            <input id="wiseNote" type="text" value="200 THB via Wise: https://wise.com/pay/r/xGmJi9kSdap4lKo" />
+
+            <label for="webhookUrl">Optional Webhook / A1 Workflow Target (Leave Blank for Browser-Only)</label>
+            <input id="webhookUrl" type="text" placeholder="Optional webhook URL..." />
+
+            <div class="actions">
+              <button type="button" class="accent" id="generateBtn">Generate Fresh Presenter Copy</button>
+              <button type="button" id="reloadBtn">Next Non-Repeating Single &amp; Reload</button>
+              <button type="button" class="primary" id="approveBtn">OK To Post (Stage JSON &amp; Audit)</button>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-title">2. Chat With Agent Anna (A1 / v4 Host)</div>
+            <div class="chat-log" id="chatLog" aria-live="polite"></div>
+            <div class="chat-row">
+              <input id="chatInput" type="text" placeholder="Tell Anna how to present today's single..." />
+              <button type="button" id="chatSendBtn">Send</button>
+            </div>
+          </section>
+        </aside>
+
+        <div>
+          <section class="card">
+            <div class="card-title">3. A1/v4 Voice, Daily-Drop Ops &amp; 2027+ Reference Pack</div>
+            <textarea id="bibleBox" readonly style="min-height:92px;"></textarea>
+          </section>
+
+          <section class="card">
+            <div class="card-title">4. Daily Hit Press Release, Pitch Deck, Slots, Replies &amp; Channel Drafts</div>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>Press Release • Daily Single Feature, 2027+ SEO &amp; Payment Rails</span>
+                <span class="stats" id="pressStats">0 words • 0 chars</span>
+              </div>
+              <div class="insights-row" id="pressInsights"></div>
+              <textarea id="pressOut" class="press-area"></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="pressOut" data-title="Press Release Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="pressOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="pressOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="pressOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="pressOut">Copy</button>
+                <button type="button" class="action-chip post-btn" data-post="press" data-source="pressOut">Post</button>
+              </div>
+              <div class="teleprompter" id="readBox_pressOut"></div>
+            </article>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>Per-Song Pitch Deck • Daily Drop Pitch, Keywords, Hashtags &amp; Rails</span>
+                <span class="stats" id="deckStats">0 words • 0 chars</span>
+              </div>
+              <div class="insights-row" id="deckInsights"></div>
+              <textarea id="pitchDeckOut" class="deck-area"></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="pitchDeckOut" data-title="Pitch Deck Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="pitchDeckOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="pitchDeckOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="pitchDeckOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="pitchDeckOut">Copy</button>
+                <button type="button" class="action-chip post-btn" data-post="pitch_deck" data-source="pitchDeckOut">Post</button>
+              </div>
+              <div class="teleprompter" id="readBox_pitchDeckOut"></div>
+            </article>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>TikTok • Modern DJ Voice-Over + Store &amp; Tags • 100–300c Sweet Spot (2,200c max)</span>
+                <span class="stats" id="ttStats">0 words • 0 / 300 ideal (2,200 max)</span>
+              </div>
+              <div class="insights-row" id="ttInsights"></div>
+              <textarea id="ttOut"></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="ttOut" data-title="TikTok Voice-Over Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="ttOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="ttOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="ttOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="ttOut">Copy</button>
+                <button type="button" class="action-chip post-btn" data-post="tiktok" data-source="ttOut">Post</button>
+              </div>
+              <div class="teleprompter" id="readBox_ttOut"></div>
+            </article>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>Instagram • Sleeve, DJ Story, Store, Wise, PayPal, BMAC &amp; Tags • 2,200c max</span>
+                <span class="stats" id="igStats">0 words • 0 / 2,200 chars</span>
+              </div>
+              <div class="insights-row" id="igInsights"></div>
+              <textarea id="igOut"></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="igOut" data-title="Instagram Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="igOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="igOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="igOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="igOut">Copy</button>
+                <button type="button" class="action-chip post-btn" data-post="instagram" data-source="igOut">Post</button>
+              </div>
+              <div class="teleprompter" id="readBox_igOut"></div>
+            </article>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>YouTube Title • 60–100c Target (100c max) • Daily Drop Shorts &amp; Features</span>
+                <span class="stats" id="ytTitleStats">0 words • 0 / 100 chars</span>
+              </div>
+              <div class="insights-row" id="ytInsights"></div>
+              <input id="ytTitleOut" type="text" maxlength="100" />
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="ytTitleOut" data-title="YT Title Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="ytTitleOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="ytTitleOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="ytTitleOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="ytTitleOut">Copy</button>
+              </div>
+              <div class="teleprompter" id="readBox_ytTitleOut"></div>
+
+              <div class="channel-head" style="margin-top:12px;">
+                <span>YouTube Description • 2027+ Keywords, Store, Wise, PayPal &amp; BMAC • 200–5,000c</span>
+                <span class="stats" id="ytDescStats">0 words • 0 / 5,000 chars</span>
+              </div>
+              <textarea id="ytDescOut" style="min-height:175px;"></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="ytDescOut" data-title="YT Description Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="ytDescOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="ytDescOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="ytDescOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="ytDescOut">Copy</button>
+                <button type="button" class="action-chip post-btn" data-post="youtube" data-source="ytDescOut">Post</button>
+              </div>
+              <div class="teleprompter" id="readBox_ytDescOut"></div>
+            </article>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>Facebook • Podcast Room Thread, Store, Wise, PayPal, BMAC &amp; Tags • 63,206c max</span>
+                <span class="stats" id="fbStats">0 words • 0 / 63,206 chars</span>
+              </div>
+              <div class="insights-row" id="fbInsights"></div>
+              <textarea id="fbOut"></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="fbOut" data-title="Facebook Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="fbOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="fbOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="fbOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="fbOut">Copy</button>
+                <button type="button" class="action-chip post-btn" data-post="facebook" data-source="fbOut">Post</button>
+              </div>
+              <div class="teleprompter" id="readBox_fbOut"></div>
+            </article>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>X • Modern DJ Punchline + Store &amp; Tags • 280c Max • 5–10/day</span>
+                <span class="stats" id="xStats">0 words • 0 / 280 chars</span>
+              </div>
+              <div class="insights-row" id="xInsights"></div>
+              <textarea id="xOut" style="min-height:92px;"></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="xOut" data-title="X Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="xOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="xOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="xOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="xOut">Copy</button>
+                <button type="button" class="action-chip post-btn" data-post="x" data-source="xOut">Post</button>
+              </div>
+              <div class="teleprompter" id="readBox_xOut"></div>
+            </article>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>Day-by-Day Time Slots &amp; Daily-Single Cadence Rollout (Morning • Midday • Evening)</span>
+                <span class="stats" id="slotsStats">0 words • 0 chars</span>
+              </div>
+              <div class="insights-row" id="slotsInsights"></div>
+              <textarea id="slotsOut" style="min-height:165px;"></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="slotsOut" data-title="Schedule Slots Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="slotsOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="slotsOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="slotsOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="slotsOut">Copy</button>
+                <button type="button" class="action-chip post-btn" data-post="schedule" data-source="slotsOut">Post</button>
+              </div>
+              <div class="teleprompter" id="readBox_slotsOut"></div>
+            </article>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>Agent Anna Fan Reply Pack (Comment Replies • Store, Wise, PayPal &amp; BMAC Rails)</span>
+                <span class="stats" id="repliesStats">0 words • 0 chars</span>
+              </div>
+              <div class="insights-row" id="repliesInsights"></div>
+              <textarea id="repliesOut" style="min-height:155px;"></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip read-btn" data-read="repliesOut" data-title="Fan Reply Pack Readout">Read</button>
+                <button type="button" class="action-chip tts-btn" data-tts="repliesOut" data-label="Speak">Speak</button>
+                <button type="button" class="action-chip edit-btn" data-edit="repliesOut">Edit</button>
+                <button type="button" class="action-chip save-btn" data-save="repliesOut">Save</button>
+                <button type="button" class="action-chip copy-btn" data-copy="repliesOut">Copy</button>
+                <button type="button" class="action-chip post-btn" data-post="replies" data-source="repliesOut">Post</button>
+              </div>
+              <div class="teleprompter" id="readBox_repliesOut"></div>
+            </article>
+
+            <article class="channel">
+              <div class="channel-head">
+                <span>5. Staged JSON Payload, Pod Audit &amp; Full Campaign Pack</span>
+              </div>
+              <textarea id="payloadOut" readonly placeholder="Click OK To Post (Stage JSON & Audit) or Copy Full Pack..."></textarea>
+              <div class="btn-row">
+                <button type="button" class="action-chip copy-btn" data-copy="payloadOut">Copy JSON</button>
+                <button type="button" class="action-chip" id="copyBundleBtn">Copy Full Pack</button>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+  (() => {
+    const DEFAULT_LIVE_JSON = "https://raw.githubusercontent.com/agent-anna/baan/main/A1/strayd/strayd-artist-live.json";
+    const DEFAULT_STORE_URL = "https://martinstrayd.github.io/artist/";
+    const DEFAULT_BMAC_URL = "https://buymeacoffee.com/martinstrayd";
+    const RECORD_BRAIN_URLS = [
+      "https://raw.githubusercontent.com/agent-anna/baan/main/A1/record-brain.json",
+      "./A1/record-brain.json",
+      "../A1/record-brain.json"
+    ];
+    const BIBLE_URLS = [
+      "https://raw.githubusercontent.com/agent-anna/baan/main/A1/v4BIBLE",
+      "https://raw.githubusercontent.com/agent-anna/baan/main/A1/1%20v4BIBLE",
+      "./A1/v4BIBLE",
+      "../A1/v4BIBLE"
+    ];
+    const QUEUE_URLS = [
+      "https://raw.githubusercontent.com/agent-anna/baan/main/A1/promo-queue.json",
+      "./A1/promo-queue.json",
+      "../A1/promo-queue.json"
+    ];
+
+    let catalog = [];
+    let sourceMeta = { source_url: "", page_title: "", fetched_at_utc: "" };
+    let bibleVoiceProfile = "";
+    let queueSummary = "";
+    let sessionMemories = [];
+    let savedDrafts = {};
+    let runCounter = 1;
+    let genSeq = 0;
+    let customDirective = "";
+    let activeSpeakingBtn = null;
+    let currentInsights = {};
+    let activeTrack = { id: "A1-STRAYD", artist: "Martin Strayd", title: "Awaiting Live Source", filename: "", url: "" };
+
+    const $ = (id) => document.getElementById(id);
+    const nonEmpty = (val, fallback = "") => (typeof val === "string" && val.trim() ? val.trim() : fallback);
+
+    function getStoreUrl() {
+      return nonEmpty($("directLink")?.value, DEFAULT_STORE_URL).replace(/([^:]\/)\/+/g, "$1");
+    }
+
+    function getBmacUrl() {
+      return nonEmpty($("bmacLink")?.value, DEFAULT_BMAC_URL).replace(/([^:]\/)\/+/g, "$1");
+    }
+
+    function resolveAssetUrl(rawUrl, baseUrl) {
+      const s = nonEmpty(rawUrl);
+      if (!s) return "";
+      if (/^(https?:|data:|blob:)/i.test(s)) return s;
+      try { return new URL(s, baseUrl || window.location.href).href; } catch (_) { return s; }
+    }
+
+    function pickFemaleVoice() {
+      if (!("speechSynthesis" in window)) return null;
+      const voices = window.speechSynthesis.getVoices() || [];
+      if (!voices.length) return null;
+      const preferredNames = [
+        "anna", "samantha", "victoria", "zira", "hazel", "aria", "jenny",
+        "moira", "tessa", "fiona", "karen", "google uk english female", "google us english"
+      ];
+      for (const pref of preferredNames) {
+        const match = voices.find((v) => (v.name || "").toLowerCase().includes(pref));
+        if (match) return match;
+      }
+      const femaleMatch = voices.find((v) => /female|woman|girl|anna|samantha|zira|victoria|aria|jenny/i.test(`${v.name} ${v.voiceURI}`));
+      if (femaleMatch) return femaleMatch;
+      return voices.find((v) => !/daniel|david|mark|arthur|fred|alex|george|james|ryan/i.test(v.name || "")) || voices[0];
+    }
+
+    if ("speechSynthesis" in window && typeof window.speechSynthesis.addEventListener === "function") {
+      window.speechSynthesis.addEventListener("voiceschanged", () => pickFemaleVoice());
+    }
+
+    function resetAllTtsButtons() {
+      document.querySelectorAll("[data-tts]").forEach((btn) => {
+        btn.classList.remove("speaking");
+        btn.textContent = btn.dataset.baseLabel || "Speak";
+      });
+      activeSpeakingBtn = null;
+    }
+
+    function stopSpeech() {
+      try { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); } catch (_) {}
+      resetAllTtsButtons();
+    }
+
+    function prepareSpokenText(raw) {
+      return nonEmpty(raw)
+        .replace(/https?:\/\/\S+/g, " link on screen ")
+        .replace(/#([A-Za-z0-9_]+)/g, "$1")
+        .replace(/[ \t]{2,}/g, " ")
+        .trim();
+    }
+
+    function toggleReadBox(btn) {
+      if (!btn) return;
+      const targetId = btn.dataset.read;
+      const el = $(targetId);
+      const box = $("readBox_" + targetId);
+      if (!el || !box) return;
+      const isOpen = box.classList.contains("open");
+      document.querySelectorAll(".teleprompter").forEach((p) => p.classList.remove("open"));
+      if (isOpen) return;
+
+      const heading = btn.dataset.title || "Voice-Over & Readout";
+      const safeBody = escapeXml(el.value || "");
+      box.innerHTML = `<div class="teleprompter-head"><span>${escapeXml(heading)}</span><button type="button" class="teleprompter-close" data-close-read="${escapeXml(targetId)}">Close</button></div><div>${safeBody.replace(/\n/g, "<br>")}</div>`;
+      box.classList.add("open");
+      box.querySelector("[data-close-read]")?.addEventListener("click", () => box.classList.remove("open"));
+      box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function handleEditField(fieldId) {
+      const el = $(fieldId);
+      if (!el) return;
+      el.readOnly = false;
+      el.focus();
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      $("bootStatus").textContent = `Editing ${fieldId} — click Save when ready`;
+    }
+
+    function handleSaveField(btn) {
+      const fieldId = btn?.dataset?.save;
+      const el = $(fieldId);
+      if (!el) return;
+      const trackKey = `v11::${activeTrack.id || "A1"}::${fieldId}`;
+      savedDrafts[trackKey] = el.value || "";
+      writeStorage("anna_saved_drafts_v11", JSON.stringify(savedDrafts));
+      updateStats();
+      if (btn) {
+        const prev = btn.textContent;
+        btn.textContent = "Saved";
+        btn.classList.add("saved");
+        setTimeout(() => {
+          btn.textContent = prev;
+          btn.classList.remove("saved");
+        }, 1200);
+      }
+      $("bootStatus").textContent = `Saved ${fieldId} for "${preserveTitle($("customSong").value || activeTrack.title)}"`;
+    }
+
+    function applySavedIfAny(fieldId, generatedValue) {
+      const trackKey = `v11::${activeTrack.id || "A1"}::${fieldId}`;
+      if (Object.prototype.hasOwnProperty.call(savedDrafts, trackKey)) {
+        return savedDrafts[trackKey];
+      }
+      return generatedValue;
+    }
+
+    function toggleSpeakForButton(btn) {
+      if (!btn) return;
+      if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+        $("engineModeMeta").textContent = "Speech synthesis is not supported in this browser.";
+        return;
+      }
+      const wasThisSpeaking = activeSpeakingBtn === btn && window.speechSynthesis.speaking;
+      stopSpeech();
+      if (wasThisSpeaking) return;
+
+      const target = $(btn.dataset.tts);
+      const spoken = prepareSpokenText(target?.value);
+      if (!spoken) return;
+
+      const utter = new SpeechSynthesisUtterance(spoken);
+      const chosenVoice = pickFemaleVoice();
+      if (chosenVoice) utter.voice = chosenVoice;
+      utter.rate = 1.05;
+      utter.pitch = 1.14;
+      utter.onend = () => resetAllTtsButtons();
+      utter.onerror = () => resetAllTtsButtons();
+
+      activeSpeakingBtn = btn;
+      btn.classList.add("speaking");
+      btn.textContent = "Stop";
+      window.speechSynthesis.speak(utter);
+    }
+
+    function getDayOfYear() {
+      const now = new Date();
+      const start = new Date(now.getFullYear(), 0, 0);
+      return Math.floor((now - start) / 86400000);
+    }
+
+    function readStorage(key) {
+      try { return localStorage.getItem(key) || ""; } catch (_) { return ""; }
+    }
+
+    function writeStorage(key, val) {
+      try { localStorage.setItem(key, val); } catch (_) {}
+    }
+
+    const countWords = (text) => {
+      const cleaned = nonEmpty(text).replace(/https?:\/\/\S+/g, " ").replace(/#\S+/g, " ").trim();
+      return cleaned ? cleaned.split(/\s+/).length : 0;
+    };
+
+    const normalizeKey = (str) =>
+      nonEmpty(str)
+        .toLowerCase()
+        .replace(/\.[a-z0-9]+$/i, "")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+
+    function preserveTitle(rawTitle) {
+      return nonEmpty(rawTitle)
+        .replace(/<think>[\s\S]*?<\/think>/gi, "")
+        .replace(/\r\n/g, " ")
+        .replace(/[ \t]{2,}/g, " ")
+        .trim();
+    }
+
+    function stripMarkdownArtifacts(str) {
+      return nonEmpty(str)
+        .replace(/```[\s\S]*?```/g, " ")
+        .replace(/`([^`]*)`/g, "$1")
+        .replace(/\*\*([^*]*)\*\*/g, "$1")
+        .replace(/\*([^*]*)\*/g, "$1")
+        .replace(/^#{1,6}\s+/gm, "")
+        .replace(/^>\s*/gm, "")
+        .replace(/\|/g, " • ")
+        .trim();
+    }
+
+    function ensureSentenceEnd(str) {
+      const s = nonEmpty(str).replace(/\s+/g, " ").trim();
+      if (!s) return "";
+      return /[.!?…]$/.test(s) ? s : `${s}.`;
+    }
+
+    function isCleanSentence(line) {
+      const s = nonEmpty(line).replace(/\s+/g, " ").trim();
+      if (s.length < 24) return false;
+      if (/^(a1 v4bible|shared agent anna|master plan manifesto|strategic handbook|target path|mirrored for gitbook)/i.test(s)) return false;
+      if (/^[A-Z0-9 _-]+$/.test(s)) return false;
+      return true;
+    }
+
+    function escapeXml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function wrapTextLines(text, maxChars = 22, maxLines = 4) {
+      const words = preserveTitle(text).split(/\s+/).filter(Boolean);
+      const lines = [];
+      let cur = "";
+      for (const w of words) {
+        const next = cur ? `${cur} ${w}` : w;
+        if (next.length <= maxChars) {
+          cur = next;
+        } else {
+          if (cur) lines.push(cur);
+          cur = w.length > maxChars ? `${w.slice(0, maxChars - 1)}…` : w;
+          if (lines.length >= maxLines) break;
+        }
+      }
+      if (lines.length < maxLines && cur) lines.push(cur);
+      return lines;
+    }
+
+    function buildWrappedSleeveUri(title, trackId, artistLabel) {
+      const displayTitle = preserveTitle(title) || "Martin Strayd Release";
+      const lines = wrapTextLines(displayTitle, 22, 4);
+      const safeId = escapeXml(preserveTitle(trackId || "STRAYD").slice(0, 20));
+      const safeArtist = escapeXml(preserveTitle(artistLabel || "").slice(0, 36));
+      const startY = lines.length <= 2 ? 250 : 210;
+      const tspans = lines
+        .map((ln, idx) => `<tspan x="56" dy="${idx === 0 ? 0 : 46}">${escapeXml(ln)}</tspan>`)
+        .join("");
+      const artistY = startY + lines.length * 46 + 18;
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0d1320"/>
+            <stop offset="55%" stop-color="#182238"/>
+            <stop offset="100%" stop-color="#090c12"/>
+          </linearGradient>
+        </defs>
+        <rect width="600" height="600" fill="url(#bg)"/>
+        <rect x="28" y="28" width="544" height="544" rx="18" fill="none" stroke="#e5b84b" stroke-opacity="0.45" stroke-width="2"/>
+        <text x="56" y="84" fill="#e5b84b" font-family="system-ui,sans-serif" font-size="16" font-weight="700" letter-spacing="2.5">${safeId}</text>
+        <text x="56" y="${startY}" fill="#f3f6fb" font-family="system-ui,sans-serif" font-size="36" font-weight="800">${tspans}</text>
+        ${safeArtist ? `<text x="56" y="${Math.min(artistY, 470)}" fill="#98a6bd" font-family="system-ui,sans-serif" font-size="21" font-weight="600">${safeArtist}</text>` : ""}
+        <text x="56" y="534" fill="#38bdf8" font-family="system-ui,sans-serif" font-size="15" font-weight="700">A1/STRAYD • AGENT ANNA • NEW SONG DAILY</text>
+      </svg>`;
+      return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    }
+
+    function buildDirectArtUrls(track) {
+      const urls = [];
+      const add = (u) => {
+        const s = nonEmpty(u);
+        if (s && !urls.includes(s)) urls.push(s);
+      };
+      add(track.url);
+      add(track.artworkUrl);
+      add(track.image);
+      const fname = nonEmpty(track.filename);
+      if (fname && (/^(https?:|\/|\.\.?\/)/i.test(fname) || /\.(png|jpe?g|webp)$/i.test(fname))) {
+        add(resolveAssetUrl(fname, track.sourceUrl));
+      }
+      return urls;
+    }
+
+    function getActiveArtworkLink() {
+      const candidates = buildDirectArtUrls(activeTrack);
+      return candidates[0] || getStoreUrl();
+    }
+
+    async function copySleeveImageToClipboard() {
+      const img = $("artPreview");
+      const title = preserveTitle($("customSong").value || activeTrack.title || "Martin Strayd Single");
+      const fallbackSvg = buildWrappedSleeveUri(title, activeTrack.id, activeTrack.artist);
+
+      const svgToPngBlob = (svgUri) => new Promise((resolve, reject) => {
+        const im = new Image();
+        im.onload = () => {
+          try {
+            const canvas = document.createElement("canvas");
+            canvas.width = 600;
+            canvas.height = 600;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(im, 0, 0, 600, 600);
+            canvas.toBlob((blob) => blob ? resolve(blob) : reject(new Error("PNG blob failed")), "image/png");
+          } catch (e) { reject(e); }
+        };
+        im.onerror = reject;
+        im.src = svgUri;
+      });
+
+      try {
+        if (!navigator.clipboard || typeof ClipboardItem === "undefined") {
+          throw new Error("ClipboardItem unsupported");
+        }
+        let pngBlob = null;
+        if (img && img.src && img.complete && img.naturalWidth > 0) {
+          if (img.src.startsWith("data:image/svg+xml")) {
+            pngBlob = await svgToPngBlob(img.src);
+          } else {
+            try {
+              const canvas = document.createElement("canvas");
+              canvas.width = img.naturalWidth;
+              canvas.height = img.naturalHeight;
+              const ctx = canvas.getContext("2d");
+              ctx.drawImage(img, 0, 0);
+              pngBlob = await new Promise((resolve, reject) => {
+                canvas.toBlob((b) => b ? resolve(b) : reject(new Error("Canvas CORS block")), "image/png");
+              });
+            } catch (_) {
+              pngBlob = await svgToPngBlob(fallbackSvg);
+            }
+          }
+        } else {
+          pngBlob = await svgToPngBlob(fallbackSvg);
+        }
+
+        await navigator.clipboard.write([new ClipboardItem({ "image/png": pngBlob })]);
+        if ($("artCopyHint")) $("artCopyHint").textContent = "Sleeve PNG copied to clipboard — paste right into your post";
+        $("bootStatus").textContent = "Copied cover sleeve image to clipboard";
+      } catch (_) {
+        const artUrl = getActiveArtworkLink();
+        try { await navigator.clipboard.writeText(artUrl); } catch (_) {}
+        if ($("artCopyHint")) $("artCopyHint").textContent = `Copied sleeve link: ${artUrl}`;
+        $("bootStatus").textContent = "Copied sleeve link to clipboard";
+      }
+    }
+
+    function cleanEditorialText(raw, lockedTitle = "") {
+      let s = stripMarkdownArtifacts(nonEmpty(raw).replace(/<think>[\s\S]*?<\/think>/gi, "").replace(/\r\n/g, "\n"));
+      s = s.replace(/\bAgent\s+anna\b/gi, "Agent Anna");
+      s = s.replace(/([^:]\/)\/+/g, "$1");
+
+      const titleToProtect = preserveTitle(lockedTitle || activeTrack.title);
+      const tokenMap = new Map();
+      let tokenIdx = 0;
+      const protectSegment = (seg) => {
+        if (!seg) return seg;
+        const tok = `@@LOCKEDTITLE${tokenIdx++}@@`;
+        tokenMap.set(tok, seg);
+        return tok;
+      };
+
+      if (titleToProtect) {
+        const escaped = titleToProtect.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        s = s.replace(new RegExp(escaped, "gi"), (m) => protectSegment(m));
+      }
+
+      s = s.replace(/[ \t]{2,}/g, " ");
+      s = s.replace(/\n{3,}/g, "\n\n");
+
+      tokenMap.forEach((val, tok) => {
+        s = s.split(tok).join(val);
+      });
+      return s.trim();
+    }
+
+    function buildHashtagSet(title, artist, keywordsRaw) {
+      const cleanArtist = (artist || "MartinStrayd").replace(/[^A-Za-z0-9]/g, "") || "MartinStrayd";
+      const titleWords = preserveTitle(title)
+        .replace(/[^A-Za-z0-9\s]/g, " ")
+        .split(/\s+/)
+        .filter((w) => w.length >= 4 && !/^(with|from|that|this|your|into|over|under|song|songs|track|music)$/i.test(w))
+        .slice(0, 2)
+        .map((w) => `#${w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()}`);
+
+      const seedTokens = nonEmpty(keywordsRaw)
+        .split(/[,|#]+/)
+        .map((w) => w.trim().replace(/[^A-Za-z0-9\s]/g, ""))
+        .filter(Boolean)
+        .map((phrase) =>
+          phrase
+            .split(/\s+/)
+            .slice(0, 3)
+            .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+            .join("")
+        )
+        .filter((tag) => tag.length >= 3 && tag.length <= 24)
+        .map((t) => `#${t}`);
+
+      const basePool = [
+        `#${cleanArtist}`,
+        "#DailySongDrop",
+        "#AgentAnna",
+        ...titleWords,
+        "#NewMusicDaily",
+        "#IndieMusic",
+        "#ModernDJ"
+      ];
+
+      const merged = [];
+      for (const tag of [...seedTokens, ...basePool]) {
+        if (!merged.some((existing) => existing.toLowerCase() === tag.toLowerCase())) {
+          merged.push(tag);
+        }
+      }
+
+      return {
+        xTags: merged.slice(0, 3).join(" "),
+        ttTags: merged.slice(0, 4).join(" "),
+        igTags: merged.slice(0, 6).join(" "),
+        fbTags: merged.slice(0, 4).join(" ")
+      };
+    }
+
+    function fitWithinLimit(body, tags, link, maxChars) {
+      const cleanLink = nonEmpty(link);
+      const cleanTags = nonEmpty(tags);
+      const anchorTail = [cleanLink, cleanTags].filter(Boolean).join(" ").trim();
+      const maxBodyLen = Math.max(24, maxChars - (anchorTail ? anchorTail.length + 1 : 0));
+
+      let fittedBody = body.trim();
+      if (fittedBody.length > maxBodyLen) {
+        fittedBody = fittedBody.slice(0, maxBodyLen).replace(/\s+\S*$/, "").trim();
+        if (!/[.!?…]$/.test(fittedBody)) fittedBody = `${fittedBody.slice(0, Math.max(10, maxBodyLen - 1))}…`;
+      }
+
+      const combined = anchorTail ? `${fittedBody} ${anchorTail}` : fittedBody;
+      if (combined.length <= maxChars) return combined;
+
+      const shortTail = cleanLink || cleanTags;
+      const allowed = Math.max(15, maxChars - (shortTail ? shortTail.length + 1 : 0));
+      return shortTail ? `${fittedBody.slice(0, allowed).trim()} ${shortTail}` : fittedBody.slice(0, maxChars).trim();
+    }
+
+    function buildPaymentSummary(storeUrl, paypal, wise, bmac) {
+      const parts = [`Store: ${storeUrl}`];
+      if (paypal) parts.push(`PayPal: ${paypal}`);
+      if (wise) parts.push(`Wise: ${wise}`);
+      if (bmac) parts.push(`Buy Me a Coffee: ${bmac}`);
+      return parts.join(" • ");
+    }
+
+    function parseCatalogPayload(raw, sourceUrl = "") {
+      sourceMeta = {
+        source_url: nonEmpty(raw?.source_url),
+        page_title: nonEmpty(raw?.page_title),
+        fetched_at_utc: nonEmpty(raw?.fetched_at_utc)
+      };
+      if (sourceMeta.source_url && !$("directLink").value) {
+        $("directLink").value = sourceMeta.source_url;
+      }
+
+      const files = Array.isArray(raw?.files_and_folders) ? raw.files_and_folders : [];
+      const artMap = new Map();
+      for (const f of files) {
+        const fname = nonEmpty(f?.filename || f?.name);
+        const u = resolveAssetUrl(f?.url || f?.raw || f?.path, sourceUrl);
+        if (fname && u && !/\.(mp3|wav|m4a|aac|flac)$/i.test(fname)) {
+          artMap.set(normalizeKey(fname), u);
+        }
+      }
+
+      const links = Array.isArray(raw?.links) ? raw.links : [];
+      for (const l of links) {
+        const href = nonEmpty(l?.href || l?.url);
+        const label = nonEmpty(l?.label);
+        if (/paypal\.com/i.test(href)) $("paypalLink").value = href;
+        if (/buymeacoffee\.com/i.test(href)) $("bmacLink").value = href;
+        if (/wise\.com/i.test(href)) $("wiseNote").value = label ? `${label}: ${href}` : `Wise: ${href}`;
+      }
+
+      const vis = Array.isArray(raw?.rendered_visible_text)
+        ? raw.rendered_visible_text
+        : String(raw?.rendered_visible_text || "").split(/\r?\n/);
+
+      const tracks = [];
+      for (let i = 0; i < vis.length; i++) {
+        const line = nonEmpty(vis[i]);
+        const m = line.match(/^([A-Z0-9_-]*ID[-_0-9]+|[A-Z]+-\d+)$/i);
+        if (m && vis[i + 2]) {
+          const id = m[1].trim();
+          const title = preserveTitle(vis[i + 2]);
+          const artist = "Martin Strayd";
+          const k1 = normalizeKey(`${artist} - ${title}`);
+          const k2 = normalizeKey(title);
+          const url = artMap.get(k1) || artMap.get(k2) || "";
+          tracks.push({ id, artist, title, filename: url ? `${artist} - ${title}.png` : "", url, sourceUrl });
+        }
+      }
+
+      if (!tracks.length) {
+        const arr = Array.isArray(raw)
+          ? raw
+          : (Array.isArray(raw?.songs) ? raw.songs : Array.isArray(raw?.tracks) ? raw.tracks : Array.isArray(raw?.items) ? raw.items : []);
+        arr.forEach((row, idx) => {
+          if (typeof row === "string") {
+            tracks.push({ id: `STRAYD-${String(idx + 1).padStart(3, "0")}`, artist: "Martin Strayd", title: preserveTitle(row), filename: "", url: "", sourceUrl });
+          } else if (row && typeof row === "object") {
+            const title = preserveTitle(row.title || row.song || row.name || row.filename || `Track ${idx + 1}`);
+            const id = nonEmpty(row.id || row.code, `STRAYD-${String(idx + 1).padStart(3, "0")}`);
+            const artist = preserveTitle(row.artist || "Martin Strayd");
+            const url = resolveAssetUrl(row.url || row.art || row.cover || row.image || row.raw, sourceUrl);
+            tracks.push({ id, artist, title, filename: nonEmpty(row.filename), url, sourceUrl });
+          }
+        });
+      }
+      return tracks;
+    }
+
+    async function tryFetchJson(urls) {
+      for (const u of urls) {
+        if (!nonEmpty(u)) continue;
+        try {
+          const res = await fetch(u, { cache: "no-store" });
+          if (res.ok) {
+            const data = await res.json();
+            return { data, url: u };
+          }
+        } catch (_) {}
+      }
+      return null;
+    }
+
+    async function tryFetchText(urls) {
+      for (const u of urls) {
+        if (!nonEmpty(u)) continue;
+        try {
+          const res = await fetch(u, { cache: "no-store" });
+          if (res.ok) {
+            const text = await res.text();
+            if (text && text.trim()) return { text, url: u };
+          }
+        } catch (_) {}
+      }
+      return null;
+    }
+
+    function setBusy(busy, label = "") {
+      const pill = $("waitIndicator");
+      if (pill) {
+        pill.classList.toggle("busy", Boolean(busy));
+        pill.textContent = busy ? (label || "Working...") : "Idle • Ready";
+      }
+      if (label) $("bootStatus").textContent = label;
+    }
+
+    function appendChat(sender, text) {
+      const log = $("chatLog");
+      if (!log) return;
+      const div = document.createElement("div");
+      div.className = "chat-msg";
+      const strong = document.createElement("strong");
+      strong.textContent = `${sender}: `;
+      const span = document.createElement("span");
+      span.textContent = text;
+      div.appendChild(strong);
+      div.appendChild(span);
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function updateStats() {
+      const pairs = [
+        ["pressOut", "pressStats", null],
+        ["pitchDeckOut", "deckStats", null],
+        ["ttOut", "ttStats", 2200],
+        ["igOut", "igStats", 2200],
+        ["ytTitleOut", "ytTitleStats", 100],
+        ["ytDescOut", "ytDescStats", 5000],
+        ["fbOut", "fbStats", 63206],
+        ["xOut", "xStats", 280],
+        ["slotsOut", "slotsStats", null],
+        ["repliesOut", "repliesStats", null]
+      ];
+      for (const [inId, stId, maxC] of pairs) {
+        const el = $(inId);
+        const st = $(stId);
+        if (!el || !st) continue;
+        const val = el.value || "";
+        const w = countWords(val);
+        const c = val.length;
+        st.classList.remove("ok", "over");
+        if (inId === "ttOut") {
+          st.textContent = `${w} words • ${c} / 300 ideal (2,200 max)`;
+          if (c > 2200) st.classList.add("over");
+          else if (c >= 100 && c <= 300) st.classList.add("ok");
+        } else if (maxC) {
+          st.textContent = `${w} words • ${c} / ${maxC.toLocaleString()} chars`;
+          if (c > maxC) st.classList.add("over");
+          else if (c > 0) st.classList.add("ok");
+        } else {
+          st.textContent = `${w} words • ${c} chars`;
+        }
+      }
+    }
+
+    function renderInsights() {
+      const map = {
+        pressInsights: currentInsights.press || ["New Song Daily", "2027+ SEO Ready", "Store + Wise + PayPal + BMAC"],
+        deckInsights: currentInsights.deck || ["Daily Drop Pitch", "Hashtags & Keywords", "Store + Wise + PayPal + BMAC"],
+        ttInsights: currentInsights.tt || ["Modern DJ Cue", "Store Link Included", "Daily Drop"],
+        igInsights: currentInsights.ig || ["Sleeve & Story", "Store + Wise + PayPal + BMAC", "Hashtags Ready"],
+        ytInsights: currentInsights.yt || ["60–100c Title", "2027+ Keywords", "Store + Wise + PayPal + BMAC"],
+        fbInsights: currentInsights.fb || ["Podcast Thread", "Store + Wise + PayPal + BMAC", "Hashtags Ready"],
+        xInsights: currentInsights.x || ["Daily Drop Punch", "Store + Tags", "280c Cap"],
+        slotsInsights: currentInsights.slots || ["Morning • Midday • Evening", "1 Song / Day"],
+        repliesInsights: currentInsights.replies || ["DJ Replies", "Store + Wise + PayPal + BMAC"]
+      };
+      for (const [id, tags] of Object.entries(map)) {
+        const box = $(id);
+        if (!box) continue;
+        box.innerHTML = "";
+        for (const t of tags) {
+          const span = document.createElement("span");
+          span.className = "insight-tag";
+          span.textContent = t;
+          box.appendChild(span);
+        }
+      }
+    }
+
+    function renderHeroArtwork(track) {
+      const img = $("artPreview");
+      const title = preserveTitle($("customSong").value || track.title || "Martin Strayd Single");
+      const fallbackSvg = buildWrappedSleeveUri(title, track.id, track.artist);
+      const candidates = buildDirectArtUrls(track);
+
+      $("heroTitle").textContent = title;
+      $("artFileMeta").textContent = `ID: ${track.id || "STRAYD"} • Artist: ${track.artist || "Martin Strayd"} • New Song Daily • Store: ${getStoreUrl()} • File: ${track.filename || (track.url ? track.url.split("/").pop() : "A1/strayd Sleeve")}`;
+      $("sceneBriefMeta").textContent = `Live-action direction: realistic live-action cinematography only for "${title}" — real room, practical lighting, real human presence, zero cartoon or illustration.`;
+
+      let idx = 0;
+      const tryNext = () => {
+        if (idx < candidates.length) {
+          img.src = candidates[idx++];
+        } else {
+          img.onerror = null;
+          img.src = fallbackSvg;
+        }
+      };
+      img.onerror = tryNext;
+      tryNext();
+
+      const badges = $("statusBadges");
+      badges.innerHTML = "";
+      [
+        "1 Song Every Day",
+        "Anna Modern DJ",
+        "2027+ SEO & Tags",
+        "Store + Wise + PayPal + BMAC"
+      ].forEach((b) => {
+        const el = document.createElement("span");
+        el.className = "badge";
+        el.textContent = b;
+        badges.appendChild(el);
+      });
+    }
+
+    function populatePicker(selectedId = "") {
+      const picker = $("songPicker");
+      if (!picker) return;
+      picker.innerHTML = "";
+      if (!catalog.length) {
+        const opt = document.createElement("option");
+        opt.value = activeTrack.id || "A1-STRAYD";
+        opt.textContent = `[${activeTrack.id || "A1-STRAYD"}] ${activeTrack.title || "Fetch A1/strayd/strayd-artist-live.json"}`;
+        picker.appendChild(opt);
+        return;
+      }
+      catalog.forEach((tr, idx) => {
+        const opt = document.createElement("option");
+        opt.value = tr.id;
+        opt.textContent = `${idx + 1}. [${tr.id}] ${tr.title}`;
+        picker.appendChild(opt);
+      });
+      if (selectedId && catalog.some((t) => t.id === selectedId)) {
+        picker.value = selectedId;
+      } else {
+        picker.value = catalog[0].id;
+      }
+    }
+
+    function pickTrackByStrategy(forceNextRandom = false) {
+      if (!catalog.length) return activeTrack;
+      const strat = $("loadStrategy")?.value || "first_json";
+      const seen = JSON.parse(readStorage("anna_strayd_seen_ids") || "[]");
+
+      if (strat === "daily_az") {
+        return catalog[getDayOfYear() % catalog.length];
+      }
+      if (strat === "random" || forceNextRandom) {
+        const unseen = catalog.filter((t) => !seen.includes(t.id) && t.id !== activeTrack.id);
+        const pool = unseen.length ? unseen : catalog.filter((t) => t.id !== activeTrack.id);
+        const chosen = (pool.length ? pool : catalog)[Math.floor(Math.random() * (pool.length ? pool.length : catalog.length))];
+        const nextSeen = [...seen.filter((x) => x !== chosen.id), chosen.id].slice(-Math.max(1, catalog.length - 1));
+        writeStorage("anna_strayd_seen_ids", JSON.stringify(nextSeen));
+        return chosen;
+      }
+      return catalog[0];
+    }
+
+    function getPresenterSet(title, id, artist, storeUrl, paypal, wise, bmac, tags) {
+      const shift = $("rotationShift")?.value || "auto";
+      const offset = shift === "auto" ? (getDayOfYear() + runCounter) : Number(shift);
+      const payLine = buildPaymentSummary(storeUrl, paypal, wise, bmac);
+
+      const pressLeads = [
+        `Modern DJ Agent Anna on air with today's new single drop: "${title}" (${id}) by ${artist}. While slow labels wait months between drops, we push a new song every day—giving listeners the MP3 and cover art bundle to own and share with friends for non-commercial enjoyment. ${payLine}`,
+        `Agent Anna breaking today's daily single release: "${title}" (${id}) from ${artist}. Every single day brings fresh music straight from our daily release engine so fans can own the MP3 + sleeve and pass tracks to friends for non-commercial listening. ${payLine}`,
+        `On air with Agent Anna—today's new single is "${title}" (${id}) by ${artist}. Built for daily discovery, modern DJ sets, and collectors grabbing MP3 + cover art bundles to own and share with friends. ${payLine}`
+      ];
+
+      const deckPitches = [
+        `Agent Anna pitching today's daily single "${title}" (${id}) by ${artist}: a new song every day (not once a month), backed by an MP3 + cover art bundle you own and share with friends for non-commercial enjoyment. ${payLine} ${tags.igTags}`,
+        `Straight from Agent Anna's modern DJ desk: "${title}" (${id}) from ${artist} powers today's daily release push—built for hosts, playlists, and fans collecting MP3 + art bundles. ${payLine} ${tags.ttTags}`
+      ];
+
+      const ttBodies = [
+        `New song today—not once a month: "${title}" (${id}) by ${artist} with DJ Anna. Grab MP3 + art at ${storeUrl}.`,
+        `DJ Anna on air with today's daily single "${title}" (${id}) from ${artist}. Own & share at ${storeUrl}.`,
+        `Fresh daily release from ${artist}: "${title}" (${id}) with Agent Anna. Store: ${storeUrl}.`
+      ];
+
+      const igCaptions = [
+        `Today's new song drop with DJ Anna: "${title}" (${id}) by ${artist}. A new single every single day—grab the MP3 + cover art bundle to own and share with friends for non-commercial listening.\n\n${payLine}`,
+        `Sleeve & studio spin for "${title}" (${id}) from ${artist}—part of our daily single run with Agent Anna. Keep the art, spin it loud, share with friends.\n\n${payLine}`
+      ];
+
+      const ytTitles = [
+        `New Single Today: "${title}" (${id}) — ${artist} | DJ Anna`,
+        `${artist} - "${title}" (${id}) | Daily Song Drop • Agent Anna`,
+        `Today's Daily Hit: "${title}" by ${artist} | DJ Anna On Air`
+      ];
+
+      const ytBodies = [
+        `Modern DJ Agent Anna spins today's new single "${title}" (${id}) by ${artist}. We drop a new song every single day—grab the MP3 + cover art bundle and share with friends for non-commercial enjoyment.\n\n${payLine}`,
+        `On air with Agent Anna for today's daily single "${title}" (${id}) from ${artist}. Part of our one-song-a-day release run with direct MP3 + sleeve access to own and share with friends.\n\n${payLine}`
+      ];
+
+      const fbPosts = [
+        `Podcast & DJ room check with Agent Anna: today's new single is "${title}" (${id}) by ${artist}. A fresh song every single day—what stands out first on "${title}"?\n\n${payLine}`,
+        `Daily single thread with Agent Anna: "${title}" (${id}) from ${artist} is live today. Are you locking onto the hook or the groove first?\n\n${payLine}`
+      ];
+
+      const xBodies = [
+        `New song today (not monthly): "${title}" (${id}) by ${artist} with DJ Anna.`,
+        `Daily drop with Agent Anna: "${title}" (${id}) from ${artist}. Own & share.`,
+        `Fresh daily single: "${title}" (${id}) by ${artist} on air with DJ Anna.`
+      ];
+
+      return {
+        pressLead: pressLeads[offset % pressLeads.length],
+        deckPitch: deckPitches[offset % deckPitches.length],
+        tt: fitWithinLimit(ttBodies[offset % ttBodies.length], tags.ttTags, "", 300),
+        ig: `${igCaptions[(offset + 1) % igCaptions.length]}\n\n${tags.igTags}`.slice(0, 2200),
+        ytTitle: preserveTitle(ytTitles[(offset + 2) % ytTitles.length]).slice(0, 100),
+        ytBody: ytBodies[(offset + 1) % ytBodies.length],
+        fb: `${fbPosts[(offset + 2) % fbPosts.length]}\n\n${tags.fbTags}`,
+        x: fitWithinLimit(xBodies[(offset + 3) % xBodies.length], tags.xTags, storeUrl, 280)
+      };
+    }
+
+    function generateAllCopy() {
+      const seq = ++genSeq;
+      stopSpeech();
+      setBusy(true, `Generating 2027+ presenter copy for "${preserveTitle($("customSong").value || activeTrack.title)}"...`);
+
+      const title = preserveTitle($("customSong").value || activeTrack.title || "Martin Strayd Single");
+      const id = nonEmpty(activeTrack.id, "A1-STRAYD");
+      const artist = preserveTitle(activeTrack.artist || "Martin Strayd");
+      const kw = nonEmpty($("keywordsInput").value, "new single every day, modern DJ radio, MP3 + cover art bundle, replay hook, daily music release");
+      const cadence = $("cadenceMode")?.value || "single_day";
+      const storeUrl = getStoreUrl();
+      const paypal = nonEmpty($("paypalLink").value);
+      const bmac = getBmacUrl();
+      const wise = nonEmpty($("wiseNote").value);
+
+      const tags = buildHashtagSet(title, artist, kw);
+      const set = getPresenterSet(title, id, artist, storeUrl, paypal, wise, bmac, tags);
+
+      const rails = [
+        `Store: ${storeUrl}`,
+        paypal ? `PayPal: ${paypal}` : "",
+        wise ? `Wise: ${wise}` : "",
+        bmac ? `Buy Me a Coffee: ${bmac}` : ""
+      ].filter(Boolean);
+
+      const railBlock = rails.join("\n");
+      const directiveLine = customDirective ? `\n\n${ensureSentenceEnd(customDirective)}` : "";
+      const bibleLine = bibleVoiceProfile ? `\n\n${ensureSentenceEnd(bibleVoiceProfile)}` : "";
+
+      if (seq !== genSeq) return;
+
+      const pressDraft = cleanEditorialText(
+        `DAILY SINGLE RELEASE • "${title}" (${id}) — ${artist} • Modern DJ Agent Anna\n\n` +
+        `${set.pressLead}\n\n` +
+        `Why Daily Releases Matter:\n` +
+        `Every single day brings a new song from ${artist}—not once a month—giving listeners, hosts, and DJs a steady stream of fresh music with MP3 + cover art bundles you own and share freely with friends for non-commercial enjoyment.\n\n` +
+        `2027+ Search & Discovery Keywords:\n` +
+        `${kw}\n\n` +
+        `Store, PayPal, Wise & Buy Me a Coffee Rails:\n` +
+        `${railBlock}${directiveLine}${bibleLine}`,
+        title
+      );
+
+      const deckDraft = cleanEditorialText(
+        `AGENT ANNA DAILY DROP PITCH • "${title}" (${id}) — ${artist}\n\n` +
+        `${set.deckPitch}\n\n` +
+        `Search Terms: ${kw}\n\n` +
+        `Store, PayPal, Wise & Buy Me a Coffee Rails:\n` +
+        `${railBlock}`,
+        title
+      );
+
+      const ttDraft = cleanEditorialText(set.tt, title);
+      const igDraft = cleanEditorialText(set.ig, title);
+      const ytTitleDraft = preserveTitle(set.ytTitle).slice(0, 100);
+
+      const ytDescDraft = cleanEditorialText(
+        `${set.ytTitle}\n\n` +
+        `${set.ytBody}\n\n` +
+        `Keywords: ${artist}, ${title}, ${id}, ${kw}\n\n` +
+        `${railBlock}\n\n` +
+        `${tags.igTags}`,
+        title
+      ).slice(0, 5000);
+
+      const fbDraft = cleanEditorialText(set.fb, title);
+      const xDraft = cleanEditorialText(set.x, title);
+
+      const slotsDraft = cleanEditorialText(
+        `DAILY SINGLE ROLLOUT • "${title}" (${id}) • Store: ${storeUrl} [${cadence === "multi_burst" ? "High-Impact Daily Burst" : "New Song Every Day"}]\n` +
+        `• Morning (08:30): Daily single press feature + X drop + Instagram sleeve & story\n` +
+        `• Midday (13:00): TikTok DJ voice-over + YouTube title/description + X keyword push\n` +
+        `• Evening (19:30): Facebook podcast thread + TikTok replay + X daily wrap\n` +
+        `${queueSummary ? `• Queue Note: ${queueSummary}` : ""}`,
+        title
+      );
+
+      const repliesDraft = cleanEditorialText(
+        `AGENT ANNA REPLIES • "${title}" (${id})\n` +
+        `• Praise: "Appreciate you spinning today's drop '${title}'—DJ Anna brings a new song every day from ${artist}."\n` +
+        `• Store, PayPal, Wise & Buy Me a Coffee: Grab the MP3 + sleeve at ${storeUrl} and share with friends for non-commercial listening.${paypal ? ` PayPal: ${paypal}.` : ""}${wise ? ` Wise: ${wise}.` : ""}${bmac ? ` Buy Me a Coffee: ${bmac}.` : ""}\n` +
+        `• Question: "Since we drop a new song every day, how does '${title}' hit in your rotation?"`,
+        title
+      );
+
+      $("pressOut").value = applySavedIfAny("pressOut", pressDraft);
+      $("pitchDeckOut").value = applySavedIfAny("pitchDeckOut", deckDraft);
+      $("ttOut").value = applySavedIfAny("ttOut", ttDraft);
+      $("igOut").value = applySavedIfAny("igOut", igDraft);
+      $("ytTitleOut").value = applySavedIfAny("ytTitleOut", ytTitleDraft);
+      $("ytDescOut").value = applySavedIfAny("ytDescOut", ytDescDraft);
+      $("fbOut").value = applySavedIfAny("fbOut", fbDraft);
+      $("xOut").value = applySavedIfAny("xOut", xDraft);
+      $("slotsOut").value = applySavedIfAny("slotsOut", slotsDraft);
+      $("repliesOut").value = applySavedIfAny("repliesOut", repliesDraft);
+
+      currentInsights = {
+        press: ["New Song Daily", "2027+ SEO Ready", "Store + Wise + PayPal + BMAC"],
+        deck: ["Daily Drop Pitch", "Hashtags & Keywords", "Store + Wise + PayPal + BMAC"],
+        tt: ["Modern DJ Cue", "Store Link Included", "Daily Drop"],
+        ig: ["Sleeve & Story", "Store + Wise + PayPal + BMAC", "Hashtags Ready"],
+        yt: [`${$("ytTitleOut").value.length}/100c Title`, "2027+ Keywords", "Store + Wise + PayPal + BMAC"],
+        fb: ["Podcast Thread", "Store + Wise + PayPal + BMAC", "Hashtags Ready"],
+        x: ["Daily Drop Punch", "Store + Tags", `${$("xOut").value.length}/280c`],
+        slots: ["Morning • Midday • Evening", "1 Song / Day"],
+        replies: ["DJ Replies", "Store + Wise + PayPal + BMAC"]
+      };
+
+      renderInsights();
+      updateStats();
+      runCounter += 1;
+      setBusy(false, `Ready: "${title}" (${id})`);
+    }
+
+    function stagePayload() {
+      const storeUrl = getStoreUrl();
+      const bmacUrl = getBmacUrl();
+      const payload = {
+        source_file: nonEmpty($("sourceUrlIn")?.value, DEFAULT_LIVE_JSON),
+        store_url: storeUrl,
+        artwork_url: getActiveArtworkLink(),
+        source_meta: sourceMeta,
+        staged_at: new Date().toISOString(),
+        release_cadence: "1_song_per_day",
+        track: {
+          id: activeTrack.id,
+          artist: activeTrack.artist,
+          title: preserveTitle($("customSong").value || activeTrack.title),
+          artwork_url: activeTrack.url || ""
+        },
+        cadence: $("cadenceMode")?.value || "single_day",
+        keywords: $("keywordsInput")?.value || "",
+        links: {
+          store: storeUrl,
+          direct: storeUrl,
+          paypal: $("paypalLink")?.value || "",
+          buy_me_a_coffee: bmacUrl,
+          wise_note: $("wiseNote")?.value || ""
+        },
+        drafts: {
+          press_release: $("pressOut")?.value || "",
+          pitch_deck: $("pitchDeckOut")?.value || "",
+          tiktok: $("ttOut")?.value || "",
+          instagram: $("igOut")?.value || "",
+          youtube_title: $("ytTitleOut")?.value || "",
+          youtube_description: $("ytDescOut")?.value || "",
+          facebook: $("fbOut")?.value || "",
+          x: $("xOut")?.value || "",
+          schedule_slots: $("slotsOut")?.value || "",
+          fan_replies: $("repliesOut")?.value || ""
+        },
+        session_notes: sessionMemories.slice(-10)
+      };
+      $("payloadOut").value = JSON.stringify(payload, null, 2);
+      $("gateStatus").textContent = `Approval gate: Staged JSON for "${payload.track.title}" (${payload.track.id}) • Store: ${storeUrl} at ${new Date().toLocaleTimeString()}`;
+      $("bootStatus").textContent = "JSON staged";
+    }
+
+    async function handlePostChannel(chan, sourceId) {
+      const text = $(sourceId)?.value || "";
+      try { await navigator.clipboard.writeText(text); } catch (_) {}
+      const hook = nonEmpty($("webhookUrl")?.value);
+      if (hook) {
+        setBusy(true, `Posting ${chan} to webhook...`);
+        try {
+          const res = await fetch(hook, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ channel: chan, store_url: getStoreUrl(), artwork_url: getActiveArtworkLink(), track: activeTrack, text, staged_at: new Date().toISOString() })
+          });
+          setBusy(false, res.ok ? `Sent & copied (${chan})` : `HTTP ${res.status} — copied (${chan})`);
+          return;
+        } catch (_) {
+          setBusy(false, `Copied (${chan}) — webhook unreachable`);
+          return;
+        }
+      }
+      $("bootStatus").textContent = `Copied ${chan} copy to clipboard (browser-ready)`;
+    }
+
+    function applyJsonString(rawText, label = "JSON") {
+      const parsed = JSON.parse(rawText);
+      const tracks = parseCatalogPayload(parsed, nonEmpty($("sourceUrlIn")?.value, DEFAULT_LIVE_JSON));
+      if (tracks.length) {
+        catalog = tracks;
+        populatePicker(catalog[0].id);
+        selectTrack(catalog[0].id, true);
+        $("bootStatus").textContent = `Loaded ${catalog.length} tracks from ${label}`;
+      } else {
+        $("bootStatus").textContent = `Parsed ${label} (0 track items found)`;
+      }
+    }
+
+    async function loadLiveSource() {
+      const src = nonEmpty($("sourceUrlIn")?.value, DEFAULT_LIVE_JSON);
+      setBusy(true, "Fetching strayd-artist-live.json...");
+      const catRes = await tryFetchJson([src, "./A1/strayd/strayd-artist-live.json", "../A1/strayd/strayd-artist-live.json"]);
+      if (catRes?.data) {
+        catalog = parseCatalogPayload(catRes.data, catRes.url);
+        populatePicker(catalog[0]?.id || "");
+        const initial = pickTrackByStrategy(false);
+        selectTrack(initial.id, true);
+        setBusy(false, `Loaded ${catalog.length} tracks from A1/strayd`);
+        return;
+      }
+      setBusy(false, "Could not fetch live JSON — paste JSON or open local file");
+    }
+
+    function handleChatSend() {
+      const input = $("chatInput");
+      const msg = nonEmpty(input?.value);
+      if (!msg) return;
+      input.value = "";
+      appendChat("You", msg);
+      sessionMemories.push(msg);
+
+      if (/next|random|another track|skip/i.test(msg)) {
+        const next = pickTrackByStrategy(true);
+        selectTrack(next.id, true);
+        appendChat("Agent Anna", `Switched to "${next.title}" (${next.id}) and generated fresh daily-drop copy with Store, PayPal, Wise & Buy Me a Coffee.`);
+        return;
+      }
+      if (/stage|ok to post|json/i.test(msg)) {
+        stagePayload();
+        appendChat("Agent Anna", `Staged the JSON campaign pack for "${preserveTitle($("customSong").value || activeTrack.title)}".`);
+        return;
+      }
+      if (/speak|read|voice/i.test(msg)) {
+        appendChat("Agent Anna", "Use Read for the teleprompter box or Speak for instant voice-over on any block.");
+        return;
+      }
+
+      customDirective = msg;
+      generateAllCopy();
+      appendChat("Agent Anna", `Locked in "${msg}" and refreshed presenter copy for "${preserveTitle($("customSong").value || activeTrack.title)}".`);
+    }
+
+    function selectTrack(trackId, shouldGenerate = true) {
+      const found = catalog.find((t) => t.id === trackId) || activeTrack;
+      if (!found) return;
+      activeTrack = { ...found };
+      $("customSong").value = "";
+      if ($("artCopyHint")) $("artCopyHint").textContent = "Click cover or Copy Image to paste straight into posts";
+      populatePicker(found.id);
+      renderHeroArtwork(found);
+      if (shouldGenerate) generateAllCopy();
+    }
+
+    async function init() {
+      try { savedDrafts = JSON.parse(readStorage("anna_saved_drafts_v11") || "{}"); } catch (_) { savedDrafts = {}; }
+      setBusy(true, "Loading A1/strayd live JSON & v4 context...");
+
+      const brainRes = await tryFetchJson(RECORD_BRAIN_URLS);
+      if (brainRes?.data) {
+        if (!nonEmpty($("directLink").value) && nonEmpty(brainRes.data?.directLink)) $("directLink").value = brainRes.data.directLink;
+        if (!nonEmpty($("paypalLink").value) && nonEmpty(brainRes.data?.paypalLink)) $("paypalLink").value = brainRes.data.paypalLink;
+        if (nonEmpty(brainRes.data?.bmacLink)) $("bmacLink").value = brainRes.data.bmacLink;
+      }
+
+      const bibleRes = await tryFetchText(BIBLE_URLS);
+      if (bibleRes?.text) {
+        const cleanedBible = stripMarkdownArtifacts(bibleRes.text);
+        const sentences = cleanedBible.split(/(?<=[.!?])\s+/).filter(isCleanSentence).slice(0, 12);
+        bibleVoiceProfile = sentences.slice(0, 2).join(" ");
+        $("bibleBox").value = cleanedBible.slice(0, 1400);
+      } else {
+        $("bibleBox").value =
+          "A1/v4 Daily Single Engine: 1 new single every day (not once a month) by Martin Strayd, presented by Agent Anna (modern DJ, podcaster, announcer). " +
+          "Store: https://martinstrayd.github.io/artist/ • Wise + PayPal + Buy Me a Coffee rails • 2027+ search & hashtag alignment • MP3 + cover art ownership with non-commercial sharing for friends. " +
+          "Live-action cinematography only (real rooms, natural/practical lighting, real human presence — zero cartoon).";
+      }
+
+      const queueRes = await tryFetchJson(QUEUE_URLS);
+      if (queueRes?.data) {
+        queueSummary = nonEmpty(queueRes.data?.summary || queueRes.data?.status || "").slice(0, 140);
+      }
+
+      await loadLiveSource();
+      appendChat("Agent Anna", catalog.length
+        ? `Connected to A1/strayd/strayd-artist-live.json (${catalog.length} tracks) • New song daily with DJ Anna, 2027+ SEO/tags, Store, PayPal, Wise & Buy Me a Coffee.`
+        : "Ready — click Fetch Live JSON From Source or paste/load the JSON file.");
+    }
+
+    $("sleeveClickBox")?.addEventListener("click", copySleeveImageToClipboard);
+    $("copyArtBtn")?.addEventListener("click", copySleeveImageToClipboard);
+    $("copyArtUrlBtn")?.addEventListener("click", async () => {
+      const artUrl = getActiveArtworkLink();
+      try { await navigator.clipboard.writeText(artUrl); } catch (_) {}
+      if ($("artCopyHint")) $("artCopyHint").textContent = `Copied sleeve link: ${artUrl}`;
+      $("bootStatus").textContent = "Copied cover sleeve URL to clipboard";
+    });
+
+    $("reloadSourceBtn")?.addEventListener("click", loadLiveSource);
+    $("loadStrategy")?.addEventListener("change", () => {
+      const chosen = pickTrackByStrategy(false);
+      selectTrack(chosen.id, true);
+    });
+    $("songPicker")?.addEventListener("change", (e) => selectTrack(e.target.value, true));
+    $("customSong")?.addEventListener("input", () => {
+      renderHeroArtwork(activeTrack);
+      generateAllCopy();
+    });
+    $("parseA1JsonBtn")?.addEventListener("click", () => {
+      const raw = nonEmpty($("a1RawJson")?.value);
+      if (!raw) return;
+      try { applyJsonString(raw, "pasted JSON"); }
+      catch (err) { $("bootStatus").textContent = `JSON error: ${err.message}`; }
+    });
+    $("a1JsonFile")?.addEventListener("change", (ev) => {
+      const file = ev.target.files && ev.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const txt = String(reader.result || "");
+        $("a1RawJson").value = txt;
+        try { applyJsonString(txt, file.name); }
+        catch (err) { $("bootStatus").textContent = `File JSON error: ${err.message}`; }
+      };
+      reader.readAsText(file);
+    });
+
+    $("cadenceMode")?.addEventListener("change", generateAllCopy);
+    $("keywordsInput")?.addEventListener("input", generateAllCopy);
+    $("rotationShift")?.addEventListener("change", generateAllCopy);
+    $("directLink")?.addEventListener("input", () => {
+      renderHeroArtwork(activeTrack);
+      generateAllCopy();
+    });
+    $("paypalLink")?.addEventListener("input", generateAllCopy);
+    $("bmacLink")?.addEventListener("input", generateAllCopy);
+    $("wiseNote")?.addEventListener("input", generateAllCopy);
+
+    $("generateBtn")?.addEventListener("click", generateAllCopy);
+    $("reloadBtn")?.addEventListener("click", () => {
+      const nxt = pickTrackByStrategy(true);
+      selectTrack(nxt.id, true);
+    });
+    $("approveBtn")?.addEventListener("click", stagePayload);
+
+    $("chatSendBtn")?.addEventListener("click", handleChatSend);
+    $("chatInput")?.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        handleChatSend();
+      }
+    });
+
+    document.querySelectorAll("[data-read]").forEach((btn) => {
+      btn.addEventListener("click", () => toggleReadBox(btn));
+    });
+
+    document.querySelectorAll("[data-tts]").forEach((btn) => {
+      btn.dataset.baseLabel = btn.textContent.trim();
+      btn.addEventListener("click", () => toggleSpeakForButton(btn));
+    });
+
+    document.querySelectorAll("[data-edit]").forEach((btn) => {
+      btn.addEventListener("click", () => handleEditField(btn.dataset.edit));
+    });
+
+    document.querySelectorAll("[data-save]").forEach((btn) => {
+      btn.addEventListener("click", () => handleSaveField(btn));
+    });
+
+    document.querySelectorAll("[data-copy]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const el = $(btn.dataset.copy);
+        if (!el) return;
+        try { await navigator.clipboard.writeText(el.value || ""); } catch (_) {}
+        const prev = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(() => { btn.textContent = prev; }, 1100);
+      });
+    });
+
+    document.querySelectorAll("[data-post]").forEach((btn) => {
+      btn.addEventListener("click", () => handlePostChannel(btn.dataset.post, btn.dataset.source));
+    });
+
+    $("copyBundleBtn")?.addEventListener("click", async () => {
+      const bundle = [
+        "=== PRESS RELEASE ===\n" + ($("pressOut")?.value || ""),
+        "=== PITCH DECK ===\n" + ($("pitchDeckOut")?.value || ""),
+        "=== TIKTOK ===\n" + ($("ttOut")?.value || ""),
+        "=== INSTAGRAM ===\n" + ($("igOut")?.value || ""),
+        "=== YOUTUBE ===\nTitle: " + ($("ytTitleOut")?.value || "") + "\n\n" + ($("ytDescOut")?.value || ""),
+        "=== FACEBOOK ===\n" + ($("fbOut")?.value || ""),
+        "=== X ===\n" + ($("xOut")?.value || ""),
+        "=== SCHEDULE SLOTS ===\n" + ($("slotsOut")?.value || ""),
+        "=== FAN REPLIES ===\n" + ($("repliesOut")?.value || "")
+      ].join("\n\n");
+      try { await navigator.clipboard.writeText(bundle); } catch (_) {}
+      $("bootStatus").textContent = "Copied full campaign bundle to clipboard";
+    });
+
+    [
+      "pressOut", "pitchDeckOut", "ttOut", "igOut",
+      "ytTitleOut", "ytDescOut", "fbOut", "xOut",
+      "slotsOut", "repliesOut"
+    ].forEach((id) => {
+      $(id)?.addEventListener("input", updateStats);
+    });
+
+    init();
+  })();
+  </script>
+<script id="annaV5EmpireRuntime">
+(() => {
+  const BIBLE_URL = "docs/v5BIBLE";
+  const OVERRIDE_KEY = "anna_v5_empire_overrides_v1";
+  const VOICE_KEY = "anna_v5_empire_voice_v1";
+
+  const state = {
+    source: "docs/v5BIBLE",
+    meta: {
+      ARTIST: "Martin Strayd",
+      HOST: "DJ ANNA",
+      MOTTO: "One artist. One song per day. One catalog forever.",
+      IDENTITY: "Martin Strayd is an Australian songwriter, lyricist, composer, independent artist, and catalog builder with a multi-decade songwriting history and a growing 100+ song catalog.",
+      RADIO_PROOF: "Documented international radio airplay includes DZRH News Radyo (Philippines), RPP FM 98.7 (Australia), WREK Atlanta (United States), CTBC (Canada), Aligre FM 93.1 & Tonic Radio (France), Radio Milenaire FM 98.1 (Chile), Radio Ultimito Mix (Ecuador), RRI Pro 4 Denpasar (Indonesia), and Musichitz Looktung Station (Thailand)."
+    },
+    links: {
+      store: "https://martinstrayd.github.io/artist/",
+      site: "https://strayd.com/",
+      spotify: "https://open.spotify.com/artist/6aRM8IKV2HBUZRGnnDdrM0",
+      paypal: "https://www.paypal.com/paypalme/martinstrayd",
+      wise: "https://wise.com/pay/r/xGmJi9kSdap4lKo",
+      bmac: "https://buymeacoffee.com/martinstrayd"
+    },
+    targets: {
+      facebook: "https://www.facebook.com/",
+      tiktok: "https://www.tiktok.com/",
+      instagram: "https://www.instagram.com/",
+      x: "https://x.com/compose/post",
+      youtube: "https://studio.youtube.com/",
+      threads: "https://www.threads.net/",
+      linkedin: "https://www.linkedin.com/feed/",
+      reddit: "https://www.reddit.com/submit"
+    },
+    templates: {}
+  };
+
+  // Hard ban on catalog IDs (STRAYD-ID-xxx) and leading index numbers (01., 1.) everywhere
+  function nukeIds(str) {
+    return (str || "")
+      .replace(/\s*[\(\[]?\s*STRAYD-ID-[A-Z0-9_-]+\s*[\)\]]?\s*/gi, " ")
+      .replace(/^\s*\d{1,3}[\.\)\-:]\s*/gm, "")
+      .replace(/\(\s*\)/g, "")
+      .replace(/\[\s*\]/g, "")
+      .replace(/[ \t]{2,}/g, " ")
+      .replace(/\s+([,.;:!?])/g, "$1")
+      .trim();
+  }
+
+  function parseBible(raw) {
+    let sec = "";
+    for (const line of (raw || "").split(/\r?\n/)) {
+      const m = line.match(/^\[(META|LINKS|TARGETS|TEMPLATES)\]\s*$/i);
+      if (m) { sec = m[1].toUpperCase(); continue; }
+      if (!sec || !line.trim() || line.trim().startsWith("#") || line.startsWith("===")) continue;
+      const idx = line.indexOf("=");
+      if (idx < 1) continue;
+      const k = line.slice(0, idx).trim();
+      const v = nukeIds(line.slice(idx + 1).replace(/\\n/g, "\n"));
+      if (sec === "META") state.meta[k] = v;
+      else if (sec === "LINKS") state.links[k] = v;
+      else if (sec === "TARGETS") state.targets[k] = v;
+      else if (sec === "TEMPLATES") state.templates[k] = v;
+    }
+  }
+
+  async function loadBible() {
+    for (const p of [BIBLE_URL, "./" + BIBLE_URL, "../" + BIBLE_URL]) {
+      try {
+        const res = await fetch(p, { cache: "no-store" });
+        if (res && res.ok) {
+          parseBible(await res.text());
+          state.source = p;
+          return true;
+        }
+      } catch (_) {}
+    }
+    return false;
+  }
+
+  function scrubSelectOptions() {
+    for (const sel of document.querySelectorAll("select")) {
+      for (const opt of Array.from(sel.options || [])) {
+        const orig = opt.textContent || "";
+        const cleaned = nukeIds(orig);
+        if (cleaned && orig !== cleaned) {
+          opt.textContent = cleaned;
+          opt.label = cleaned;
+        }
+      }
+    }
+  }
+
+  function scrubAllEditorsAndText() {
+    scrubSelectOptions();
+    for (const ta of document.querySelectorAll("textarea")) {
+      if (typeof ta.value === "string" && /STRAYD-ID-|^\s*\d{1,3}[\.\)\-:]\s*/im.test(ta.value)) {
+        const cleaned = nukeIds(ta.value);
+        if (cleaned !== ta.value) {
+          ta.value = cleaned;
+          ta.dispatchEvent(new Event("input", { bubbles: true }));
+        }
+      }
+    }
+  }
+
+  function getActiveTitle() {
+    const inp = document.querySelector("input[placeholder*='single title' i], input[placeholder*='override' i], #customTitleOverride");
+    const custom = inp && typeof inp.value === "string" ? nukeIds(inp.value) : "";
+    if (custom) return custom;
+
+    const sel = Array.from(document.querySelectorAll("select")).find((s) =>
+      Array.from(s.options || []).some((o) => /STRAYD-ID-/i.test((o.value || "") + (o.dataset?.id || "")) || (o.textContent || "").length > 3)
+    );
+    const opt = sel ? sel.options[sel.selectedIndex] : null;
+    return nukeIds(opt ? opt.textContent : "") || "Today's Daily Single";
+  }
+
+  function renderTemplate(tpl, title, channel) {
+    const cleanT = nukeIds(title);
+    const tag = cleanT.replace(/[^a-zA-Z0-9]+/g, "").slice(0, 24) || "DailySingles";
+    const dateStr = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    let out = tpl || state.templates.default || "";
+    const map = {
+      "{{TITLE}}": cleanT,
+      "{{TAG}}": tag,
+      "{{DATE}}": dateStr,
+      "{{BIBLE_SOURCE}}": state.source,
+      "{{MOTTO}}": state.meta.MOTTO || "",
+      "{{IDENTITY}}": state.meta.IDENTITY || "",
+      "{{RADIO_PROOF}}": state.meta.RADIO_PROOF || "",
+      "{{store}}": state.links.store || "",
+      "{{site}}": state.links.site || "",
+      "{{spotify}}": state.links.spotify || "",
+      "{{paypal}}": state.links.paypal || "",
+      "{{wise}}": state.links.wise || "",
+      "{{bmac}}": state.links.bmac || ""
+    };
+    for (const [k, v] of Object.entries(map)) out = out.split(k).join(v);
+    out = nukeIds(out);
+    if (channel === "x") out = out.slice(0, 278);
+    return out;
+  }
+
+  function detectChannel(card) {
+    const h = ((card.querySelector("h1,h2,h3,h4,.card-title,.platform-title,.net-name")?.textContent || "") + " " + (card.textContent || "").slice(0, 180)).toLowerCase();
+    if (/press\s*release|pitch\s*deck|slots|rep/i.test(h)) return "press";
+    if (/tiktok/i.test(h)) return "tiktok";
+    if (/instagram/i.test(h)) return "instagram";
+    if (/\b(x|twitter)\b/i.test(h)) return "x";
+    if (/youtube|shorts/i.test(h)) return "youtube";
+    if (/threads/i.test(h)) return "threads";
+    if (/facebook/i.test(h)) return "facebook";
+    if (/linkedin|reddit/i.test(h)) return "default";
+    return null;
+  }
+
+  function pickFemaleVoice() {
+    if (!("speechSynthesis" in window)) return null;
+    const vs = window.speechSynthesis.getVoices() || [];
+    if (!vs.length) return null;
+    let saved = "";
+    try { saved = localStorage.getItem(VOICE_KEY) || ""; } catch (_) {}
+    if (saved) {
+      const m = vs.find((v) => v.name === saved || v.voiceURI === saved);
+      if (m) return m;
+    }
+    const fem = /female|woman|zira|aria|jenny|sonia|libby|maisie|natasha|hazel|emma|olivia|samantha|victoria/i;
+    const male = /\bmale\b|\bman\b|\bdavid\b|\bmark\b|\bguy\b|\bryan\b|\balex\b|\bdaniel\b|\bgeorge\b/i;
+    const best = vs.map((v) => {
+      const lbl = `${v.name || ""} ${v.voiceURI || ""} ${v.lang || ""}`;
+      let s = /^en/i.test(v.lang || "") ? 20 : 0;
+      if (fem.test(lbl)) s += 70;
+      if (v.localService) s += 10;
+      if (male.test(lbl)) s -= 90;
+      return { v, s };
+    }).sort((a, b) => b.s - a.s)[0];
+    if (best?.v) {
+      try { localStorage.setItem(VOICE_KEY, best.v.name || best.v.voiceURI || ""); } catch (_) {}
+    }
+    return best ? best.v : vs[0];
+  }
+
+  async function copyClipboard(txt) {
+    const clean = nukeIds(txt);
+    if (!clean) return false;
+    try { if (navigator.clipboard?.writeText) { await navigator.clipboard.writeText(clean); return true; } } catch (_) {}
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = clean; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    } catch (_) { return false; }
+  }
+
+  // Intercept speechSynthesis.speak so IDs can never be spoken even if another button triggers TTS
+  if ("speechSynthesis" in window && !window.__annaNukeSpeakHook) {
+    window.__annaNukeSpeakHook = true;
+    const rawSpeak = window.speechSynthesis.speak.bind(window.speechSynthesis);
+    window.speechSynthesis.speak = (u) => {
+      if (u && typeof u.text === "string") u.text = nukeIds(u.text);
+      return rawSpeak(u);
+    };
+  }
+
+  let busy = false;
+  function hydrateCards() {
+    if (busy) return;
+    busy = true;
+    try {
+      scrubSelectOptions();
+      const title = getActiveTitle();
+      let ov = {};
+      try { ov = JSON.parse(localStorage.getItem(OVERRIDE_KEY) || "{}"); } catch (_) {}
+
+      for (const card of document.querySelectorAll("article,section,.card,.post-card,.social-card,.platform-card,.panel")) {
+        const ch = detectChannel(card);
+        if (!ch) continue;
+        const ed = card.querySelector("textarea,[contenteditable='true'],.post-text,.caption-box,.press-body");
+        if (!ed) continue;
+
+        const key = `${ch}_${title}`;
+        const tpl = state.templates[ch] || state.templates.default || "";
+        const val = nukeIds(ov[key] || renderTemplate(tpl, title, ch));
+
+        if (typeof ed.value === "string") {
+          if (ed.value !== val) {
+            ed.value = val;
+            ed.dispatchEvent(new Event("input", { bubbles: true }));
+          }
+        } else if (ed.innerText !== val) {
+          ed.innerText = val;
+          ed.dispatchEvent(new Event("input", { bubbles: true }));
+        }
+
+        const btns = Array.from(card.querySelectorAll("button"));
+        const postBtn = btns.find((b) => /^post$/i.test((b.textContent || "").trim()));
+        const saveBtn = btns.find((b) => /^save$/i.test((b.textContent || "").trim()));
+        const copyBtn = btns.find((b) => /^copy$/i.test((b.textContent || "").trim()));
+        const speakBtn = btns.find((b) => /^(speak|stop)$/i.test((b.textContent || "").trim()));
+
+        if (saveBtn && !saveBtn.dataset.v5nSave) {
+          saveBtn.dataset.v5nSave = "1";
+          saveBtn.addEventListener("click", (e) => {
+            e.preventDefault(); e.stopPropagation();
+            const cur = nukeIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
+            ov[`${ch}_${getActiveTitle()}`] = cur;
+            try { localStorage.setItem(OVERRIDE_KEY, JSON.stringify(ov)); } catch (_) {}
+          }, true);
+        }
+
+        if (copyBtn && !copyBtn.dataset.v5nCopy) {
+          copyBtn.dataset.v5nCopy = "1";
+          copyBtn.addEventListener("click", async (e) => {
+            e.preventDefault(); e.stopPropagation();
+            const cur = nukeIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
+            if (typeof ed.value === "string") ed.value = cur;
+            await copyClipboard(cur);
+          }, true);
+        }
+
+        if (speakBtn && !speakBtn.dataset.v5nSpeak) {
+          speakBtn.dataset.v5nSpeak = "1";
+          speakBtn.addEventListener("click", (e) => {
+            e.preventDefault(); e.stopPropagation();
+            if (!("speechSynthesis" in window)) return;
+            if (window.speechSynthesis.speaking) {
+              window.speechSynthesis.cancel();
+              speakBtn.textContent = "Speak";
+              return;
+            }
+            const spoken = nukeIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
+            if (!spoken) return;
+            const u = new SpeechSynthesisUtterance(spoken);
+            const v = pickFemaleVoice();
+            if (v) { u.voice = v; u.lang = v.lang || "en-US"; }
+            u.pitch = 1.08; u.rate = 0.98;
+            speakBtn.textContent = "Stop";
+            u.onend = () => { speakBtn.textContent = "Speak"; };
+            u.onerror = () => { speakBtn.textContent = "Speak"; };
+            window.speechSynthesis.speak(u);
+          }, true);
+        }
+
+        if (postBtn && !postBtn.dataset.v5nPost) {
+          postBtn.dataset.v5nPost = "1";
+          postBtn.addEventListener("click", async (e) => {
+            e.preventDefault(); e.stopPropagation();
+            const cur = nukeIds(typeof ed.value === "string" ? ed.value : (ed.innerText || ""));
+            if (typeof ed.value === "string") ed.value = cur;
+            await copyClipboard(cur);
+            window.open(state.targets[ch] || state.targets.facebook, "_blank", "noopener,noreferrer");
+          }, true);
+        }
+      }
+      scrubAllEditorsAndText();
+    } finally {
+      busy = false;
+    }
+  }
+
+  const guardObs = new MutationObserver(() => {
+    if (!busy) scrubAllEditorsAndText();
+  });
+
+  document.addEventListener("change", (e) => {
+    if (e.target?.tagName === "SELECT") {
+      setTimeout(hydrateCards, 25);
+      setTimeout(hydrateCards, 180);
+    }
+  });
+
+  document.addEventListener("input", (e) => {
+    const ph = (e.target?.getAttribute?.("placeholder") || "").toLowerCase();
+    if (ph.includes("single title") || ph.includes("override")) {
+      setTimeout(hydrateCards, 120);
+    }
+  });
+
+  loadBible().finally(() => {
+    if (document.body) {
+      guardObs.observe(document.body, { childList: true, subtree: true });
+    }
+    hydrateCards();
+    setTimeout(hydrateCards, 250);
+    setTimeout(hydrateCards, 800);
+    setInterval(scrubAllEditorsAndText, 600);
+  });
+})();
+</script>
+</body>
+</html>
+
