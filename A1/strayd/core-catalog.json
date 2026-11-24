@@ -2,7 +2,6 @@
     "artist":  "Martin Strayd",
     "minSeconds":  70,
     "total":  122,
-    "updatedAt":  "2026-11-24T14:12:02.8682391Z",
     "songs":  [
                   {
                       "id":  "STRAYD-ID-001",
@@ -14,7 +13,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Adhd%20I%20Can%20Do%20That%20(Travillen%20Disorder)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-002",
@@ -26,7 +25,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Always%20Hard%20(Backstage%20Knee%20Pads)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-003",
@@ -38,7 +37,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Andaman%20Escape"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-004",
@@ -50,7 +49,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Angelic%20Gorilla%20(Fantasy%20Mix)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-005",
@@ -62,7 +61,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Bad%20Habits%20(I%20Found%20Nun)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-006",
@@ -74,7 +73,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Bloody%20Mary%20(Cool%20Hot%20Hot%20Shots)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-007",
@@ -86,7 +85,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Christmas%20Song%20(Yadda%20Ho%20Ho)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-008",
@@ -98,7 +97,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Click%20Bait%20Love%20Story%20(Internet%20Culture%20Club%20MIX)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-009",
@@ -110,7 +109,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Danny%20Penniman%20(Reward%20Offered)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-010",
@@ -122,7 +121,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Debbie%20Diamond%20(Dudeist)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-011",
@@ -134,7 +133,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Debbie%20Diamond%20(Succeed)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-012",
@@ -146,7 +145,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Dejavu%20(Crazy)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-013",
@@ -158,7 +157,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Devils%20Goin%20Public%20(Beelzebub)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-014",
@@ -170,7 +169,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Down%20Under%20(Australian%20Land)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-015",
@@ -182,7 +181,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Everybody%20Knows%20(It\u0027s%20Illegal)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-016",
@@ -194,7 +193,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Factory%20Blues%20(Regency)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-017",
@@ -206,7 +205,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Factory%20Work%20(Night%20Shift)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-018",
@@ -218,7 +217,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Fall%20into%20the%20Circle%20(High%20School)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-019",
@@ -230,7 +229,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Favorite%20Home%20(Hyatt)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-020",
@@ -242,7 +241,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Fool%20for%20a%20Good%20Time%20(Good%20to%20Be%20Alive)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-021",
@@ -254,7 +253,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Forgot%20(About%20You)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-022",
@@ -266,7 +265,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Four%20People%20on%20a%20Bike%20(Acoustic%20Guitar)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-023",
@@ -278,7 +277,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Golden%20Shore%20(Krabi)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-024",
@@ -290,7 +289,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Great%20Escape%20(Hotel%20Rock)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-025",
@@ -302,7 +301,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Happy%20Endings%20(Buy%20a%20Ticket)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-026",
@@ -314,7 +313,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Have%20You%20Heard%20the%20One%20About%20(Bank%20Job)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-027",
@@ -326,7 +325,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Hell%20Aint%20a%20Bad%20Place"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-028",
@@ -338,7 +337,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Hit%20Song%20Tonight%20(Good%20Line%20Good%20Hook)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-029",
@@ -350,7 +349,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/How%20Old%20Were%20You"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-030",
@@ -362,7 +361,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/How%20to%20Write%20Hit%20Songs%20(On%20My%20Deck)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-031",
@@ -374,7 +373,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/I%20Can%20Do%20That%20(Didgeridoo)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-032",
@@ -386,7 +385,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/I%20Had%20a%20Good%20Time%20(Welcome)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-033",
@@ -398,7 +397,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Invisible%20Censorship%20(Ai%20Agent%20Predicts%20New%20President)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-034",
@@ -410,7 +409,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Japanese%20Holiday%20(Rock%20Roll)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-035",
@@ -422,7 +421,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Jewish%20Girls%20Yadda%20Yadda%20%26%20Yada%20(Meshuggeneh)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-036",
@@ -434,7 +433,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Just%20a%20Cut%20(Healing)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-037",
@@ -446,7 +445,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Mary%20Had%20a%20Little%20(Bloody%20Virgin%20Mary)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-038",
@@ -458,7 +457,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Mile%20High%20Club%20(Guest%20Pass)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-039",
@@ -470,7 +469,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Modern%20May%20Day%20(Stand%20Up)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-040",
@@ -482,7 +481,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Morning%20Rain%20(Aussie%20True%20Blue)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-041",
@@ -494,7 +493,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Move%20It%20(Crazy)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-042",
@@ -506,7 +505,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Move%20It%20for%20the%20Lady"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-043",
@@ -518,7 +517,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/No%20Romance%20in%20France%20(Eiffel%20Tower%20Twins)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-044",
@@ -530,7 +529,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Old%20School%20Rock%20Star%20(Over%2055)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-045",
@@ -542,7 +541,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Once%20Upon%20a%20Rock%20(Make%20Believe)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-046",
@@ -554,19 +553,19 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Once%20Upon%20a%20Time"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-047",
                       "title":  "One Two Threesome (Club Dominance MIX)",
-                      "sourceType":  "licensed",
+                      "sourceType":  "youtube_only",
                       "releaseDate":  null,
                       "doc":  "A1/docs/v3BIBLE/One Two Threesome (Club Dominance MIX).md",
                       "art":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - One Two Threesome (Club Dominance MIX).png",
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/One%20Two%20Threesome%20(Club%20Dominance%20MIX)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-048",
@@ -578,19 +577,19 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Paradise%20(Thailand)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-049",
                       "title":  "Queen Meets King (Queen of Click Bait Free Drink)",
-                      "sourceType":  "licensed",
+                      "sourceType":  "youtube_only",
                       "releaseDate":  null,
                       "doc":  "A1/docs/v3BIBLE/Queen Meets King (Queen of Click Bait Free Drink).md",
                       "art":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Queen Meets King (Queen of Click Bait Free Drink).png",
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Queen%20Meets%20King%20(Queen%20of%20Click%20Bait%20Free%20Drink)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-050",
@@ -602,7 +601,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Queen%20Meets%20Millionaire%20(Monopoly%20Money)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-051",
@@ -614,7 +613,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Queen%20of%20Clickbait%20(I%20Made%20My%20First%20Million%20Dollars)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-052",
@@ -626,7 +625,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Really%20They%20Called%20Me%20Crazy"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-053",
@@ -638,7 +637,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Scan%20Qr%20Pre%20Payment%20(Modern%20Love%20Ritual%20MIX)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-054",
@@ -650,7 +649,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Sex%20Education%20(Bangkok%20Crazy)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-055",
@@ -662,7 +661,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Sex%20with%20Everyone%20(Crazy%20Bitch)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-056",
@@ -674,7 +673,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Sex%20with%20Everyone%20(Sex%20Sex%20Sex)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-057",
@@ -686,7 +685,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Smile%20High%20Club%20Mix%20(Free%20Ride)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-058",
@@ -698,7 +697,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/The%20End%20(Addiction)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-059",
@@ -710,7 +709,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/They%20Called%20Me%20Crazy%20(Blues%20Version)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-060",
@@ -722,7 +721,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Threesome%20Secrets%20(M%C3%A9nage%20%C3%80%20Trois%20MIX)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-061",
@@ -734,7 +733,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Tropical%20Island%20(Monkey)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-062",
@@ -746,7 +745,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Tropical%20Island"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-063",
@@ -758,7 +757,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Tuk%20Tuk%20Secret%20Spice%20(Muay%20Thailand)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-064",
@@ -770,7 +769,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Two%20Best%20Friends"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-065",
@@ -782,7 +781,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Untimely%20Overdose"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-066",
@@ -794,7 +793,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Vegan%20Millionaire%20(Cool%20Hot%20Sauce)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-067",
@@ -806,7 +805,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Vegan%20Millionaire%20(Crypto)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-068",
@@ -818,7 +817,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Who%20Killed%20Fun%20(Pay%20the%20Rent)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-069",
@@ -830,7 +829,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Wonderful%20Day%20(Everyday)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-070",
@@ -842,7 +841,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/X%20Rated%20Algorithm%20(Drunken%20Disco%20Money)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-071",
@@ -854,7 +853,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/You%20Know%20Me%20(Sunset%20Blues)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-072",
@@ -866,7 +865,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/You%20Know%20What%20(Blues%20Version)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-073",
@@ -878,7 +877,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Young%20and%20Dumb%20(Search%20Engine)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-074",
@@ -890,7 +889,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Zulu%20Dancers%20Like%20Me%20(You\u0027re%20Too%20Much)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-075",
@@ -902,7 +901,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Anti%20Pop%20Rock%20(Social%20Anarchy)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-076",
@@ -914,7 +913,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/You%20Know%20Me"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-077",
@@ -926,7 +925,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Queen%20of%20Clickbait%20(Virgin%20Millionaire)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-078",
@@ -938,7 +937,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Dudeist%20Priest"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-079",
@@ -950,7 +949,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/For%20God"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-080",
@@ -962,7 +961,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/How%20Old%20Were%20You%20When%20You%20Gave%20Up"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-081",
@@ -974,7 +973,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Paradise%20Koh%20Lanta"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-082",
@@ -986,7 +985,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/One%20Cigarette"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-083",
@@ -998,31 +997,31 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Queen%20of%20Clickbait%20(Pump%20%26%20Dump)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-084",
                       "title":  "Hit Song Mini (Wet \u0026 Ready) [Outake]",
-                      "sourceType":  "licensed",
+                      "sourceType":  "youtube_only",
                       "releaseDate":  null,
                       "doc":  null,
                       "art":  "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/62/89/24/628924eb-87cf-8b21-9914-89a493939857/859714386029_cover.jpg/1000x1000bb.jpg",
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Hit%20Song%20Mini%20(Wet%20%26%20Ready)%20%5BOutake%5D"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-085",
                       "title":  "Fool for a Good Time (Live) [1988]",
-                      "sourceType":  "licensed",
+                      "sourceType":  "youtube_only",
                       "releaseDate":  null,
                       "doc":  null,
                       "art":  "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0a/83/d9/0a83d979-9e59-7a62-c4b8-2485829ebb42/859714533577_cover.jpg/1000x1000bb.jpg",
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Fool%20for%20a%20Good%20Time%20(Live)%20%5B1988%5D"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-086",
@@ -1034,7 +1033,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Hit%20Song%20(Acapella)%2C%20Pt.3"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-087",
@@ -1046,7 +1045,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Four%20People%20on%20a%20Bike%20(Acoustic)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-088",
@@ -1058,7 +1057,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Gtbtk"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-089",
@@ -1070,7 +1069,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Aussie%20Oz%20Born"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-090",
@@ -1082,7 +1081,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Hit%20Song%20for%20You%20(Demo%20Tape)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-091",
@@ -1094,7 +1093,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/What%20a%20Wonderful%20Day"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-092",
@@ -1106,7 +1105,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/If%20You%20See%20Kay"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-093",
@@ -1118,7 +1117,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/I%20Had%20a%20Good%20Time"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-094",
@@ -1130,7 +1129,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Maybe%20Im%20Wronge"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-095",
@@ -1142,7 +1141,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Going%20Down"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-096",
@@ -1154,7 +1153,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Just%20a%20Cut%20(Demo)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-097",
@@ -1166,7 +1165,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Factory%20Blues"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-098",
@@ -1178,7 +1177,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Travillen"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-099",
@@ -1190,7 +1189,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Twisted%20(Live)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-100",
@@ -1202,7 +1201,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Two%20Girls%20Looking"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-101",
@@ -1214,7 +1213,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Mile%20High%20Club"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-102",
@@ -1226,7 +1225,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Golden%20Shore%20(Live)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-103",
@@ -1238,7 +1237,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/No%20Romance%20in%20France"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-104",
@@ -1250,7 +1249,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Who%20Killed%20Fun"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-105",
@@ -1262,7 +1261,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Fu"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-106",
@@ -1274,7 +1273,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Megalithic%20Conspiracy%20Theory"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-107",
@@ -1286,7 +1285,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Great%20Escape"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-108",
@@ -1298,7 +1297,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Black%20Box"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-109",
@@ -1310,7 +1309,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Natron%20Theory%20How%20to%20Rock"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-110",
@@ -1322,7 +1321,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Mary%20Had%20a%20Little"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-111",
@@ -1334,7 +1333,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Anti%20Pop%20Rock%20(Private%20Party)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-112",
@@ -1346,7 +1345,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Anti%20Pop%20Rock%20(Rock%20Ready)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-113",
@@ -1358,7 +1357,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Anti%20Pop%20Rock%20(Start%20End%20Repeat)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-114",
@@ -1370,7 +1369,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Anti%20Pop%20Rocks%20(Invitation%20Only)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-115",
@@ -1382,7 +1381,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Click%20Bait%20Love%20Story%20(Anti%20Pop%20Club%20MIX)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-116",
@@ -1394,7 +1393,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Click%20Bait%20Love%20Story%20(Psychological%20Suduction%20MIX)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-117",
@@ -1406,7 +1405,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Click%20Bait%20Love%20Story%20(Unicorn%20Experience%20MIX)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-118",
@@ -1418,7 +1417,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/We%20Just%20Had%20Contact%20(Ufo%20Invasion)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-119",
@@ -1430,7 +1429,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/We%20Just%20Had%20Ufo%20Contact%20(Uap%20Arrival%20Angels)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-120",
@@ -1442,19 +1441,19 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/What%20Is%20It%20You%20Cant%20Face"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-121",
                       "title":  "Anti Pop Rock (Invitation Only)",
-                      "sourceType":  "licensed",
+                      "sourceType":  "youtube_only",
                       "releaseDate":  null,
                       "doc":  null,
                       "art":  "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c7/45/6a/c7456abe-843d-bc09-2f63-556e4f32e06b/859728044120_cover.jpg/1000x1000bb.jpg",
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Anti%20Pop%20Rock%20(Invitation%20Only)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   },
                   {
                       "id":  "STRAYD-ID-122",
@@ -1466,7 +1465,7 @@
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
-                      "spotify":  "https://open.spotify.com/search/Queen%20Meets%20King%20(Anti%20Pop%20Rock)"
+                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
                   }
               ]
 }
