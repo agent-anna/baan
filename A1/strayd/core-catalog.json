@@ -1,7 +1,8 @@
 ﻿{
     "artist":  "Martin Strayd",
     "minSeconds":  70,
-    "total":  122,
+    "total":  121,
+    "updatedAt":  "2026-11-24T14:46:29.9039283Z",
     "songs":  [
                   {
                       "id":  "STRAYD-ID-001",
@@ -1438,18 +1439,6 @@
                       "releaseDate":  "2025-09-24",
                       "doc":  null,
                       "art":  "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/06/50/c7/0650c77b-99c4-38fb-9579-5ad94c9909cd/859718711506_cover.jpg/1000x1000bb.jpg",
-                      "audio":  null,
-                      "portal":  "https://martinstrayd.github.io/artist/",
-                      "youtube":  null,
-                      "liveAlbum":  "https://www.youtube.com/watch?v=_MdpkPUEl00"
-                  },
-                  {
-                      "id":  "STRAYD-ID-121",
-                      "title":  "Anti Pop Rock (Invitation Only)",
-                      "sourceType":  "youtube_only",
-                      "releaseDate":  null,
-                      "doc":  null,
-                      "art":  "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c7/45/6a/c7456abe-843d-bc09-2f63-556e4f32e06b/859728044120_cover.jpg/1000x1000bb.jpg",
                       "audio":  null,
                       "portal":  "https://martinstrayd.github.io/artist/",
                       "youtube":  null,
