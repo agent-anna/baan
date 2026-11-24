@@ -1,0 +1,749 @@
+{
+    "artist":  "Martin Strayd",
+    "moniker":  "STRAYD",
+    "salesPortal":  "https://martinstrayd.github.io/artist/",
+    "totalSongs":  74,
+    "updatedAt":  "2026-11-24T12:23:24Z",
+    "songs":  [
+                  {
+                      "id":  "STRAYD-ID-001",
+                      "title":  "Adhd I Can Do That (Travillen Disorder)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Adhd I Can Do That (Travillen Disorder).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Adhd I Can Do That (Travillen Disorder).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "awaiting_review",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Adhd I Can Do That (Travillen Disorder).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-002",
+                      "title":  "Always Hard (Backstage Knee Pads)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Always Hard (Backstage Knee Pads).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Always Hard (Backstage Knee Pads).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Always Hard (Backstage Knee Pads).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-003",
+                      "title":  "Andaman Escape",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Andaman Escape.png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Andaman Escape.png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "pending",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Andaman Escape.md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-004",
+                      "title":  "Angelic Gorilla (Fantasy Mix)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Angelic Gorilla (Fantasy Mix).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Angelic Gorilla (Fantasy Mix).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Angelic Gorilla (Fantasy Mix).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-005",
+                      "title":  "Bad Habits (I Found Nun)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Bad Habits (I Found Nun).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Bad Habits (I Found Nun).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Bad Habits (I Found Nun).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-006",
+                      "title":  "Bloody Mary (Cool Hot Hot Shots)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Bloody Mary (Cool Hot Hot Shots).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Bloody Mary (Cool Hot Hot Shots).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Bloody Mary (Cool Hot Hot Shots).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-007",
+                      "title":  "Christmas Song (Yadda Ho Ho)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Christmas Song (Yadda Ho Ho).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Christmas Song (Yadda Ho Ho).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Christmas Song (Yadda Ho Ho).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-008",
+                      "title":  "Click Bait Love Story (Internet Culture Club MIX)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Click Bait Love Story (Internet Culture Club MIX).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Click Bait Love Story (Internet Culture Club MIX).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Click Bait Love Story (Internet Culture Club MIX).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-009",
+                      "title":  "Danny Penniman (Reward Offered)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Danny Penniman (Reward Offered).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Danny Penniman (Reward Offered).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Danny Penniman (Reward Offered).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-010",
+                      "title":  "Debbie Diamond (Dudeist)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Debbie Diamond (Dudeist).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Debbie Diamond (Dudeist).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Debbie Diamond (Dudeist).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-011",
+                      "title":  "Debbie Diamond (Succeed)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Debbie Diamond (Succeed).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Debbie Diamond (Succeed).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Debbie Diamond (Succeed).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-012",
+                      "title":  "Dejavu (Crazy)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Dejavu (Crazy).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Dejavu (Crazy).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Dejavu (Crazy).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-013",
+                      "title":  "Devils Goin Public (Beelzebub)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Devils Goin Public (Beelzebub).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Devils Goin Public (Beelzebub).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Devils Goin Public (Beelzebub).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-014",
+                      "title":  "Down Under (Australian Land)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Down Under (Australian Land).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Down Under (Australian Land).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Down Under (Australian Land).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-015",
+                      "title":  "Everybody Knows (It\u0027s Illegal)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Everybody Knows (It\u0027s Illegal).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Everybody Knows (It\u0027s Illegal).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Everybody Knows (It\u0027s Illegal).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-016",
+                      "title":  "Factory Blues (Regency)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Factory Blues (Regency).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Factory Blues (Regency).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Factory Blues (Regency).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-017",
+                      "title":  "Factory Work (Night Shift)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Factory Work (Night Shift).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Factory Work (Night Shift).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Factory Work (Night Shift).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-018",
+                      "title":  "Fall into the Circle (High School)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Fall into the Circle (High School).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Fall into the Circle (High School).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Fall into the Circle (High School).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-019",
+                      "title":  "Favorite Home (Hyatt)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Favorite Home (Hyatt).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Favorite Home (Hyatt).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Favorite Home (Hyatt).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-020",
+                      "title":  "Fool for a Good Time (Good to Be Alive)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Fool for a Good Time (Good to Be Alive).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Fool for a Good Time (Good to Be Alive).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Fool for a Good Time (Good to Be Alive).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-021",
+                      "title":  "Forgot (About You)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Forgot (About You).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Forgot (About You).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Forgot (About You).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-022",
+                      "title":  "Four People on a Bike (Acoustic Guitar)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Four People on a Bike (Acoustic Guitar).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Four People on a Bike (Acoustic Guitar).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Four People on a Bike (Acoustic Guitar).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-023",
+                      "title":  "Golden Shore (Krabi)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Golden Shore (Krabi).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Golden Shore (Krabi).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Golden Shore (Krabi).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-024",
+                      "title":  "Great Escape (Hotel Rock)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Great Escape (Hotel Rock).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Great Escape (Hotel Rock).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Great Escape (Hotel Rock).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-025",
+                      "title":  "Happy Endings (Buy a Ticket)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Happy Endings (Buy a Ticket).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Happy Endings (Buy a Ticket).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Happy Endings (Buy a Ticket).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-026",
+                      "title":  "Have You Heard the One About (Bank Job)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Have You Heard the One About (Bank Job).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Have You Heard the One About (Bank Job).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Have You Heard the One About (Bank Job).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-027",
+                      "title":  "Hell Aint a Bad Place",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Hell Aint a Bad Place.png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Hell Aint a Bad Place.png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Hell Aint a Bad Place.md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-028",
+                      "title":  "Hit Song Tonight (Good Line Good Hook)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Hit Song Tonight (Good Line Good Hook).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Hit Song Tonight (Good Line Good Hook).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Hit Song Tonight (Good Line Good Hook).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-029",
+                      "title":  "How Old Were You",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - How Old Were You.png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - How Old Were You.png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/How Old Were You.md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-030",
+                      "title":  "How to Write Hit Songs (On My Deck)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - How to Write Hit Songs (On My Deck).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - How to Write Hit Songs (On My Deck).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/How to Write Hit Songs (On My Deck).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-031",
+                      "title":  "I Can Do That (Didgeridoo)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - I Can Do That (Didgeridoo).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - I Can Do That (Didgeridoo).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/I Can Do That (Didgeridoo).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-032",
+                      "title":  "I Had a Good Time (Welcome)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - I Had a Good Time (Welcome).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - I Had a Good Time (Welcome).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/I Had a Good Time (Welcome).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-033",
+                      "title":  "Invisible Censorship (Ai Agent Predicts New President)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Invisible Censorship (Ai Agent Predicts New President).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Invisible Censorship (Ai Agent Predicts New President).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Invisible Censorship (Ai Agent Predicts New President).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-034",
+                      "title":  "Japanese Holiday (Rock Roll)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Japanese Holiday (Rock Roll).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Japanese Holiday (Rock Roll).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Japanese Holiday (Rock Roll).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-035",
+                      "title":  "Jewish Girls Yadda Yadda \u0026 Yada (Meshuggeneh)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Jewish Girls Yadda Yadda \u0026 Yada (Meshuggeneh).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Jewish Girls Yadda Yadda \u0026 Yada (Meshuggeneh).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Jewish Girls Yadda Yadda \u0026 Yada (Meshuggeneh).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-036",
+                      "title":  "Just a Cut (Healing)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Just a Cut (Healing).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Just a Cut (Healing).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Just a Cut (Healing).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-037",
+                      "title":  "Mary Had a Little (Bloody Virgin Mary)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Mary Had a Little (Bloody Virgin Mary).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Mary Had a Little (Bloody Virgin Mary).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Mary Had a Little (Bloody Virgin Mary).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-038",
+                      "title":  "Mile High Club (Guest Pass)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Mile High Club (Guest Pass).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Mile High Club (Guest Pass).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Mile High Club (Guest Pass).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-039",
+                      "title":  "Modern May Day (Stand Up)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Modern May Day (Stand Up).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Modern May Day (Stand Up).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Modern May Day (Stand Up).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-040",
+                      "title":  "Morning Rain (Aussie True Blue)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Morning Rain (Aussie True Blue).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Morning Rain (Aussie True Blue).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Morning Rain (Aussie True Blue).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-041",
+                      "title":  "Move It (Crazy)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Move It (Crazy).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Move It (Crazy).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Move It (Crazy).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-042",
+                      "title":  "Move It for the Lady",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Move It for the Lady.png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Move It for the Lady.png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Move It for the Lady.md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-043",
+                      "title":  "No Romance in France (Eiffel Tower Twins)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - No Romance in France (Eiffel Tower Twins).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - No Romance in France (Eiffel Tower Twins).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/No Romance in France (Eiffel Tower Twins).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-044",
+                      "title":  "Old School Rock Star (Over 55)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Old School Rock Star (Over 55).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Old School Rock Star (Over 55).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Old School Rock Star (Over 55).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-045",
+                      "title":  "Once Upon a Rock (Make Believe)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Once Upon a Rock (Make Believe).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Once Upon a Rock (Make Believe).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Once Upon a Rock (Make Believe).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-046",
+                      "title":  "Once Upon a Time",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Once Upon a Time.png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Once Upon a Time.png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Once Upon a Time.md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-047",
+                      "title":  "One Two Threesome (Club Dominance MIX)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - One Two Threesome (Club Dominance MIX).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - One Two Threesome (Club Dominance MIX).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/One Two Threesome (Club Dominance MIX).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-048",
+                      "title":  "Paradise (Thailand)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Paradise (Thailand).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Paradise (Thailand).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Paradise (Thailand).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-049",
+                      "title":  "Queen Meets King (Queen of Click Bait Free Drink)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Queen Meets King (Queen of Click Bait Free Drink).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Queen Meets King (Queen of Click Bait Free Drink).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Queen Meets King (Queen of Click Bait Free Drink).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-050",
+                      "title":  "Queen Meets Millionaire (Monopoly Money)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Queen Meets Millionaire (Monopoly Money).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Queen Meets Millionaire (Monopoly Money).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Queen Meets Millionaire (Monopoly Money).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-051",
+                      "title":  "Queen of Clickbait (I Made My First Million Dollars)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Queen of Clickbait (I Made My First Million Dollars).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Queen of Clickbait (I Made My First Million Dollars).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Queen of Clickbait (I Made My First Million Dollars).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-052",
+                      "title":  "Really They Called Me Crazy",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Really They Called Me Crazy.png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Really They Called Me Crazy.png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Really They Called Me Crazy.md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-053",
+                      "title":  "Scan Qr Pre Payment (Modern Love Ritual MIX)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Scan Qr Pre Payment (Modern Love Ritual MIX).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Scan Qr Pre Payment (Modern Love Ritual MIX).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Scan Qr Pre Payment (Modern Love Ritual MIX).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-054",
+                      "title":  "Sex Education (Bangkok Crazy)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Sex Education (Bangkok Crazy).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Sex Education (Bangkok Crazy).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Sex Education (Bangkok Crazy).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-055",
+                      "title":  "Sex with Everyone (Crazy Bitch)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Sex with Everyone (Crazy Bitch).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Sex with Everyone (Crazy Bitch).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Sex with Everyone (Crazy Bitch).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-056",
+                      "title":  "Sex with Everyone (Sex Sex Sex)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Sex with Everyone (Sex Sex Sex).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Sex with Everyone (Sex Sex Sex).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Sex with Everyone (Sex Sex Sex).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-057",
+                      "title":  "Smile High Club Mix (Free Ride)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Smile High Club Mix (Free Ride).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Smile High Club Mix (Free Ride).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Smile High Club Mix (Free Ride).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-058",
+                      "title":  "The End (Addiction)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - The End (Addiction).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - The End (Addiction).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/The End (Addiction).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-059",
+                      "title":  "They Called Me Crazy (Blues Version)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - They Called Me Crazy (Blues Version).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - They Called Me Crazy (Blues Version).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/They Called Me Crazy (Blues Version).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-060",
+                      "title":  "Threesome Secrets (Ménage À Trois MIX)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Threesome Secrets (Ménage À Trois MIX).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Threesome Secrets (Ménage À Trois MIX).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Threesome Secrets (Ménage À Trois MIX).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-061",
+                      "title":  "Tropical Island (Monkey)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Tropical Island (Monkey).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Tropical Island (Monkey).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Tropical Island (Monkey).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-062",
+                      "title":  "Tropical Island",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Tropical Island.png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Tropical Island.png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Tropical Island (Monkey).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-063",
+                      "title":  "Tuk Tuk Secret Spice (Muay Thailand)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Tuk Tuk Secret Spice (Muay Thailand).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Tuk Tuk Secret Spice (Muay Thailand).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Tuk Tuk Secret Spice (Muay Thailand).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-064",
+                      "title":  "Two Best Friends",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Two Best Friends.png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Two Best Friends.png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Two Best Friends.md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-065",
+                      "title":  "Untimely Overdose",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Untimely Overdose.png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Untimely Overdose.png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Untimely Overdose.md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-066",
+                      "title":  "Vegan Millionaire (Cool Hot Sauce)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Vegan Millionaire (Cool Hot Sauce).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Vegan Millionaire (Cool Hot Sauce).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Vegan Millionaire (Cool Hot Sauce).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-067",
+                      "title":  "Vegan Millionaire (Crypto)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Vegan Millionaire (Crypto).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Vegan Millionaire (Crypto).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Vegan Millionaire (Crypto).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-068",
+                      "title":  "Who Killed Fun (Pay the Rent)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Who Killed Fun (Pay the Rent).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Who Killed Fun (Pay the Rent).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Who Killed Fun (Pay the Rent).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-069",
+                      "title":  "Wonderful Day (Everyday)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Wonderful Day (Everyday).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Wonderful Day (Everyday).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Wonderful Day (Everyday).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-070",
+                      "title":  "X Rated Algorithm (Drunken Disco Money)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - X Rated Algorithm (Drunken Disco Money).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - X Rated Algorithm (Drunken Disco Money).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/X Rated Algorithm (Drunken Disco Money).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-071",
+                      "title":  "You Know Me (Sunset Blues)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - You Know Me (Sunset Blues).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - You Know Me (Sunset Blues).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/You Know Me (Sunset Blues).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-072",
+                      "title":  "You Know What (Blues Version)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - You Know What (Blues Version).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - You Know What (Blues Version).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/You Know What (Blues Version).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-073",
+                      "title":  "Young and Dumb (Search Engine)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Young and Dumb (Search Engine).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Young and Dumb (Search Engine).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Young and Dumb (Search Engine).md"
+                  },
+                  {
+                      "id":  "STRAYD-ID-074",
+                      "title":  "Zulu Dancers Like Me (You\u0027re Too Much)",
+                      "artist":  "Martin Strayd",
+                      "art":  "store-art/Martin Strayd - Zulu Dancers Like Me (You\u0027re Too Much).png",
+                      "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Zulu Dancers Like Me (You\u0027re Too Much).png",
+                      "portalUrl":  "https://martinstrayd.github.io/artist/",
+                      "promoStatus":  "unqueued",
+                      "bibleDoc":  "A1/docs/v3BIBLE/Zulu Dancers Like Me (You\u0027re Too Much).md"
+                  }
+              ]
+}
