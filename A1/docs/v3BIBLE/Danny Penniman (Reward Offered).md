@@ -18,7 +18,29 @@ tunecore_status: "TBD (next week)"
 - **Cover Art:** `Martin Strayd - Danny Penniman (Reward Offered).png`
 
 ## Lyrics
-> [Add lyrics for "Danny Penniman (Reward Offered)" here]
+Danny Boy Danny Boy
+If you are receiving this signal we ask for your attention
+Danny Penniman last seen in Nashville Tennessee
+Danny Penniman It is time for fun fun fun
+Son of music legend Little Richard
+His name echoes from the Sunset Strip Los Angeles Hollywood, California
+Where is Danny Penniman
+If you are receiving this signal we ask for your attention
+Danny Penniman last seen in Nashville, Tennessee
+Danny Boy Danny Boy
+Son of music legend Little Richard
+His name echoes from the Sunset Strip Los Angeles Hollywood California Where is Danny Penniman
+Danny Boy Danny Boy This is not rumor This is not nostalgia.
+This is a call for help Danny Boy Help us find him
+Danny Boy Danny Boy
+Danny Penniman.
+Nashville Hollywood The Strip Where is he
+Danny Penniman
+Nashville. Hollywood The Strip Where is he
+This is not rumor This is not nostalgia
+This is a call If you can hear us
+Help us find Danny Boy
+Where is Danny
 
 ## Location & Live-Action Scene Notes
 - **Location:** [Add live-action location]
