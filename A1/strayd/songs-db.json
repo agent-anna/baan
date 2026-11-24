@@ -3,7 +3,7 @@
     "moniker":  "STRAYD",
     "salesPortal":  "https://martinstrayd.github.io/artist/",
     "totalSongs":  74,
-    "updatedAt":  "2026-11-24T12:23:24Z",
+    "updatedAt":  "2026-11-24T12:30:22Z",
     "songs":  [
                   {
                       "id":  "STRAYD-ID-001",
@@ -623,7 +623,7 @@
                       "artUrl":  "https://martinstrayd.github.io/artist/store-art/Martin Strayd - Tropical Island.png",
                       "portalUrl":  "https://martinstrayd.github.io/artist/",
                       "promoStatus":  "unqueued",
-                      "bibleDoc":  "A1/docs/v3BIBLE/Tropical Island (Monkey).md"
+                      "bibleDoc":  "A1/docs/v3BIBLE/Tropical Island.md"
                   },
                   {
                       "id":  "STRAYD-ID-063",
